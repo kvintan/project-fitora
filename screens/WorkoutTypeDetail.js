@@ -1,0 +1,55 @@
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
+export default function WorkoutTypeDetail() {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.container}>
+      {/* Tombol kembali */}
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+        <Ionicons name="chevron-back" size={28} color="#fff" />
+      </TouchableOpacity>
+
+      {/* Konten sementara */}
+      <Text style={styles.title}>Insane Six Pack</Text>
+      <Text style={styles.text}>
+        This is a placeholder for the workout detail screen. In the future, this page will include:
+        {"\n\n"}• List of exercises{"\n"}• Sets & reps{"\n"}• Start button{"\n"}• Progress bar{"\n"}• Timer, etc.
+      </Text>
+    </View>
+  );
+}
+
+// StyleSheet
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#1C1C1C",
+    padding: 20,
+    paddingTop: 60,
+  },
+  backButton: {
+    position: "absolute",
+    top: 40,
+    left: 20,
+    zIndex: 10,
+    backgroundColor: "#00000080",
+    borderRadius: 20,
+    padding: 5,
+  },
+  title: {
+    fontSize: 28,
+    fontFamily: "Unbounded",
+    color: "#D2FF39",
+    marginBottom: 20,
+  },
+  text: {
+    fontSize: 14,
+    color: "#ffffff",
+    fontFamily: "LexendRegular",
+    lineHeight: 22,
+  },
+});
