@@ -1,21 +1,22 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts } from "expo-font";
+
+// Screens
 import FirstPage from "./screens/FirstPage";
 import Login from "./screens/Login";
 import ExerciseListPage from "./screens/ExerciseListPage";
+import ExerciseDetail from "./screens/ExerciseDetail"; // ✅ PENTING: Tambahkan ini
 import WorkoutPage from "./screens/WorkoutPage";
 import WorkoutType from "./screens/WorkoutType";
 import WorkoutTypeDetail from "./screens/WorkoutTypeDetail";
-import { useFonts } from "expo-font";
 import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
 
-
-const stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,60 +31,67 @@ export default function App() {
     LexendLight: require("./assets/Lexend/static/Lexend-Light.ttf"),
   });
 
+  if (!fontsLoaded) return null;
+
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="ExerciseListPage">
-        <stack.Screen
+      <Stack.Navigator initialRouteName="ExerciseListPage">
+        <Stack.Screen
           name="ExerciseListPage"
           component={ExerciseListPage}
           options={{ headerShown: false }}
-        ></stack.Screen>
-        <stack.Screen
+        />
+        <Stack.Screen
+          name="ExerciseDetail"
+          component={ExerciseDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="FirstPage"
           component={FirstPage}
           options={{ headerShown: false }}
-        ></stack.Screen>
-        <stack.Screen
+        />
+        <Stack.Screen
           name="Login"
           component={Login}
           options={{ headerShown: false }}
-        ></stack.Screen>
-        <stack.Screen
-          name="FoodPage"
-          component={FoodPage}
-          options={{ headerShown: false }}
-        ></stack.Screen>
-        <stack.Screen
+        />
+        <Stack.Screen
           name="WorkoutPage"
           component={WorkoutPage}
           options={{ headerShown: false }}
         />
-        <stack.Screen
+        <Stack.Screen
           name="WorkoutType"
           component={WorkoutType}
           options={{ headerShown: false }}
         />
-        <stack.Screen
+        <Stack.Screen
           name="WorkoutTypeDetail"
           component={WorkoutTypeDetail}
           options={{ headerShown: false }}
         />
-        <stack.Screen
+        <Stack.Screen
+          name="FoodPage"
+          component={FoodPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="NutritionTips"
           component={NutritionTips}
           options={{ headerShown: false }}
         />
-        <stack.Screen
+        <Stack.Screen
           name="ArticleDetail"
           component={ArticleDetail}
           options={{ headerShown: false }}
         />
-        <stack.Screen
+        <Stack.Screen
           name="FoodList"
           component={FoodList}
           options={{ headerShown: false }}
-        ></stack.Screen>
-      </stack.Navigator>
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
