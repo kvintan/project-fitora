@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FirstPage from "./screens/FirstPage";
 import Login from "./screens/Login";
 import { useFonts } from "expo-font";
+import FoodPage from "./screens/FoodPage";
 
 const stack = createNativeStackNavigator();
 
@@ -17,7 +18,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Login">
+      <stack.Navigator initialRouteName="FoodPage">
         <stack.Screen
           name="FirstPage"
           component={FirstPage}
@@ -26,6 +27,11 @@ export default function App() {
         <stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        ></stack.Screen>
+        <stack.Screen
+          name="FoodPage"
+          component={FoodPage}
           options={{ headerShown: false }}
         ></stack.Screen>
       </stack.Navigator>
