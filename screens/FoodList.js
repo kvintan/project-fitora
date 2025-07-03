@@ -58,14 +58,20 @@ export default function FoodList() {
 
   return (
     <View style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={styles.backButton}>{"<"}</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("FoodPage")}>
+          <Image
+            source={require("../assets/backButton.png")}
+            style={styles.backButtonImage}
+          />
         </TouchableOpacity>
+
         <Text style={styles.title}>Lunch List</Text>
         <View style={{ width: 30 }} />
       </View>
 
+      {/* Gradient Box */}
       <LinearGradient
         colors={["#2F2F2F", "#393939"]}
         style={styles.listContainer}
@@ -107,10 +113,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 24,
   },
-  backButton: {
-    fontSize: 26,
-    color: "#fff",
-    fontWeight: "bold",
+  backButtonImage: {
+    width: 40,
+    height: 40,
+    resizeMode: "contain",
   },
   title: {
     fontSize: 24,
