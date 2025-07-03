@@ -14,6 +14,8 @@ import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
 import FoodDetail from "./screens/FoodDetail";
 import MyPlan from "./screens/MyPlan";
+import YourPlan from "./screens/YourPlan";
+import YourWorkout from "./screens/YourWorkout";
 
 const stack = createNativeStackNavigator();
 
@@ -31,7 +33,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="MyPlan">
+      <stack.Navigator initialRouteName="YourPlan">
         <stack.Screen
           name="FirstPage"
           component={FirstPage}
@@ -85,6 +87,16 @@ export default function App() {
         <stack.Screen
           name="MyPlan"
           component={MyPlan}
+          options={{ headerShown: false }}
+        ></stack.Screen>
+        <stack.Screen
+          name="YourPlan"
+          component={YourPlan}
+          options={{ headerShown: false }}
+        ></stack.Screen>
+        <stack.Screen
+          name="YourWorkout"
+          component={YourWorkout}
           options={{ headerShown: false }}
         ></stack.Screen>
       </stack.Navigator>
