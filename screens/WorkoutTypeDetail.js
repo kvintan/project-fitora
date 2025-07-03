@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -9,8 +9,14 @@ export default function WorkoutTypeDetail() {
   return (
     <View style={styles.container}>
       {/* Tombol kembali */}
-      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-        <Ionicons name="chevron-back" size={28} color="#fff" />
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={styles.backButton}>
+
+        <Image
+          source={require("../assets/backButton.png")}
+          style={styles.backIcon}
+        />
       </TouchableOpacity>
 
       {/* Konten sementara */}
@@ -31,14 +37,26 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingTop: 60,
   },
+  // backButton: {
+  //   position: "absolute",
+  //   top: 40,
+  //   left: 20,
+  //   zIndex: 10,
+  //   backgroundColor: "#00000080",
+  //   borderRadius: 20,
+  //   padding: 5,
+  // },
   backButton: {
     position: "absolute",
-    top: 40,
-    left: 20,
+    top: 30,
+    left: 15,
+    padding: 8,
     zIndex: 10,
-    backgroundColor: "#00000080",
-    borderRadius: 20,
-    padding: 5,
+  },
+  backIcon: {
+    width: 35,
+    height: 35,
+    resizeMode: "contain",
   },
   title: {
     fontSize: 28,
