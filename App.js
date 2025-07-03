@@ -5,6 +5,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FirstPage from "./screens/FirstPage";
 import Login from "./screens/Login";
 import { useFonts } from "expo-font";
+import NutritionTips from "./screens/NutritionTips";
+import ArticleDetail from "./screens/ArticleDetail";
+
 
 const stack = createNativeStackNavigator();
 
@@ -17,7 +20,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Login">
+      <stack.Navigator initialRouteName="NutritionTips">
         <stack.Screen
           name="FirstPage"
           component={FirstPage}
@@ -28,6 +31,16 @@ export default function App() {
           component={Login}
           options={{ headerShown: false }}
         ></stack.Screen>
+        <stack.Screen
+          name="NutritionTips"
+          component={NutritionTips}
+          options={{ headerShown: false }}
+        />
+        <stack.Screen
+          name="ArticleDetail"
+          component={ArticleDetail}
+          options={{ headerShown: false }}
+        />
       </stack.Navigator>
     </NavigationContainer>
   );
