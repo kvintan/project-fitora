@@ -21,8 +21,8 @@ export default function App() {
     UnboundedRegular: require("./assets/Unbounded/static/Unbounded-Regular.ttf"),
     Lexend: require("./assets/Lexend/static/Lexend-Black.ttf"),
     LexendSemiBold: require("./assets/Lexend/static/Lexend-SemiBold.ttf"),
-    LexendLight: require("./assets/Lexend/static/Lexend-Light.ttf"),
     LexendRegular: require("./assets/Lexend/static/Lexend-Regular.ttf"),
+    LexendLight: require("./assets/Lexend/static/Lexend-Light.ttf"),
   });
 
   return (
@@ -43,7 +43,7 @@ export default function App() {
           component={FoodPage}
           options={{ headerShown: false }}
         ></stack.Screen>
-        <StackScreen
+        <stack.Screen
           name="WorkoutPage"
           component={WorkoutPage}
           options={{ headerShown: false }}
