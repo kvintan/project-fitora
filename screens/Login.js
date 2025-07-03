@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
     fontSize: 39,
     fontFamily: "Unbounded",
     color: "#FFFFFF",
-    fontWeight: "bold",
     alignSelf: "flex-start",
     marginLeft: "7%",
     marginTop: "5%",
