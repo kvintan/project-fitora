@@ -7,9 +7,11 @@ import {
   Text,
   Image,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Carousel from "react-native-reanimated-carousel";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
@@ -51,21 +53,14 @@ const foodData = [
   },
   {
     id: "6",
-    title: "Tuna Wrap",
+    title: "Veggie Pesto Pasta",
     image: require("../assets/menu-6.png"),
     time: "20 mins",
     calories: "400kcal",
   },
   {
     id: "7",
-    title: "Tuna Wrap",
-    image: require("../assets/menu-7.png"),
-    time: "10 mins",
-    calories: "200kcal",
-  },
-  {
-    id: "8",
-    title: "Tuna Wrap",
+    title: "Egg Spinach Scramble",
     image: require("../assets/menu-7.png"),
     time: "10 mins",
     calories: "200kcal",
@@ -100,6 +95,8 @@ const nutritionTipsData = [
 ];
 
 export default function FoodPage() {
+  const navigation = useNavigation();
+
   return (
     <ImageBackground
       source={require("../assets/background-food.png")}
@@ -141,22 +138,36 @@ export default function FoodPage() {
               parallaxScrollingOffset: 60,
             }}
             pagingEnabled={false}
-            renderItem={({ item }) => (
-              <View style={styles.card}>
-                <Image source={item.image} style={styles.foodImage} />
-                <Text style={styles.foodTitle}>{item.title}</Text>
-                <View style={styles.metaInfo}>
-                  <View style={styles.metaItem}>
-                    <Image
-                      source={require("../assets/time-food.png")}
-                      style={styles.metaIcon}
-                    />
-                    <Text style={styles.metaTextTime}>{item.time}</Text>
+            renderItem={({ item }) => {
+              const content = (
+                <View style={styles.card}>
+                  <Image source={item.image} style={styles.foodImage} />
+                  <Text style={styles.foodTitle}>{item.title}</Text>
+                  <View style={styles.metaInfo}>
+                    <View style={styles.metaItem}>
+                      <Image
+                        source={require("../assets/time-food.png")}
+                        style={styles.metaIcon}
+                      />
+                      <Text style={styles.metaTextTime}>{item.time}</Text>
+                    </View>
+                    <Text style={styles.metaText}>🔥 {item.calories}</Text>
                   </View>
-                  <Text style={styles.metaText}>🔥 {item.calories}</Text>
                 </View>
-              </View>
-            )}
+              );
+
+              if (item.id === "1") {
+                return (
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("FoodDetail")}
+                  >
+                    {content}
+                  </TouchableOpacity>
+                );
+              }
+
+              return content;
+            }}
           />
         </View>
 

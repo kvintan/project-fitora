@@ -15,6 +15,10 @@ import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
+import FoodDetail from "./screens/FoodDetail";
+import MyPlan from "./screens/MyPlan";
+import YourPlan from "./screens/YourPlan";
+import YourWorkout from "./screens/YourWorkout";
 
 const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
 
@@ -91,6 +95,26 @@ export default function App() {
           component={FoodList}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="FoodDetail"
+          component={FoodDetail}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="MyPlan"
+          component={MyPlan}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="YourPlan"
+          component={YourPlan}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="YourWorkout"
+          component={YourWorkout}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
