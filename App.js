@@ -8,9 +8,10 @@ import WorkoutPage from "./screens/WorkoutPage";
 import WorkoutType from "./screens/WorkoutType";
 import WorkoutTypeDetail from "./screens/WorkoutTypeDetail";
 import { useFonts } from "expo-font";
+import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
-
+import FoodList from "./screens/FoodList";
 
 const stack = createNativeStackNavigator();
 
@@ -22,8 +23,8 @@ export default function App() {
     UnboundedRegular: require("./assets/Unbounded/static/Unbounded-Regular.ttf"),
     Lexend: require("./assets/Lexend/static/Lexend-Black.ttf"),
     LexendSemiBold: require("./assets/Lexend/static/Lexend-SemiBold.ttf"),
+    LexendRegular: require("./assets/Lexend/static/Lexend-Regular.ttf"),
     LexendLight: require("./assets/Lexend/static/Lexend-Light.ttf"),
-    LexendRegular: require("./assets/Lexend/static/Lexend-Regular.ttf")
   });
 
   return (
@@ -37,6 +38,11 @@ export default function App() {
         <stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        ></stack.Screen>
+        <stack.Screen
+          name="FoodPage"
+          component={FoodPage}
           options={{ headerShown: false }}
         ></stack.Screen>
         <stack.Screen
@@ -64,6 +70,11 @@ export default function App() {
           component={ArticleDetail}
           options={{ headerShown: false }}
         />
+        <stack.Screen
+          name="FoodList"
+          component={FoodList}
+          options={{ headerShown: false }}
+        ></stack.Screen>
       </stack.Navigator>
     </NavigationContainer>
   );

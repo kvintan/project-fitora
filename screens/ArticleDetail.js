@@ -4,64 +4,87 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+  Image,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 
-export default function ArticleDetail({ navigation }) {
+const { width } = Dimensions.get("window");
+
+export default function ArticleDetail({ route, navigation }) {
+  const { title, image, content } = route.params;
+
   return (
-    <ScrollView style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.back}>
-        <Ionicons name="arrow-back" size={24} color="white" />
-      </TouchableOpacity>
-
-      <Text style={styles.title}>
-        Hydration Matters: Why Water Is Your Secret Weapon
-      </Text>
-
-      <Text style={styles.body}>
-        Water is often overlooked, but it's the unsung hero of our daily health.
-        Everything from digestion and metabolism to focus and skin health is
-        influenced by how much water we drink.
-        {"\n\n"}
-        <Text style={styles.bold}>Let's dive in!</Text>
-        {"\n\n"}
-        <Text style={styles.bold}>How Much Water Do You Need?</Text>
-        {"\n"}
-        Men: ~3.7L/day | Women: ~2.7L/day
-        {"\n\n"}
-        <Text style={styles.bold}>Signs of Dehydration</Text>
-        {"\n"}
-        - Fatigue or sluggishness{"\n"}- Dry mouth or dry skin{"\n"}- Headaches
-        or dizziness
-      </Text>
+    <ScrollView style={{ flex: 1 }}>
+      <View style={styles.container}> 
+        <View style={styles.imageContainer}>
+          <Image source={image} style={styles.articleImage} />
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.backButton}
+          >
+            <Image
+              source={require("../assets/backButtonBlack.png")}
+              style={styles.backIcon}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.contentBox}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.body}>{content}</Text>
+        </View>
+      </View>
     </ScrollView>
   );
+
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#111",
+    backgroundColor: "#ccc",
     flex: 1,
-    padding: 20,
   },
-  back: {
-    marginBottom: 15,
+  imageContainer: {
+    position: "relative",
+    width: "100%",
+    height: 250,
+  },
+  articleImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+  },
+  backButton: {
+    position: "absolute",
+    top: 30,
+    left: 15,
+    padding: 8,
+  },
+  backIcon: {
+    width: 35,
+    height: 35,
+    resizeMode: "contain",
+  },
+  contentBox: {
+    backgroundColor: "#1C1C1C",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 10,
+    marginTop: -20,
+    minHeight: "100%",
   },
   title: {
-    fontSize: 22,
+    fontSize: 18,
     fontFamily: "Unbounded",
     color: "#fff",
-    marginBottom: 20,
+    textAlign: "center",
+    marginBottom: 15,
   },
   body: {
-    fontSize: 14,
-    fontFamily: "UnboundedLight",
+    fontSize: 13,
+    fontFamily: "LexendRegular",
     color: "#ccc",
-    lineHeight: 24,
-  },
-  bold: {
-    fontFamily: "UnboundedSemiBold",
-    color: "#fff",
+    lineHeight: 22,
+    textAlign: "justify",
   },
 });
