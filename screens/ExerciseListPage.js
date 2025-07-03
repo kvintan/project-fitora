@@ -9,9 +9,6 @@ import {
   FlatList
 } from 'react-native';
 
-import LinearGradient from 'react-native-linear-gradient';
-
-
 const exercises = [
   {
     id: '1',
@@ -134,6 +131,16 @@ const ExerciseListPage = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('WorkoutPage')}
+        style={styles.backButton}
+      >
+        <Image
+          source={require('../assets/backButton.png')}
+          style={styles.backIcon}
+        />
+      </TouchableOpacity>
+
       <Text style={styles.header}>Exercise List</Text>
       <FlatList
         data={exercises}
@@ -207,5 +214,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'LexendBold',
     lineHeight: 20,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 55,
+    left: 15,
+    padding: 8,
+    zIndex: 10,
+  },
+  backIcon: {
+    width: 35,
+    height: 35,
+    resizeMode: 'contain',
   },
 });
