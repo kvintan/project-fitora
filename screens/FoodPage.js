@@ -63,6 +63,13 @@ const foodData = [
     time: "10 mins",
     calories: "200kcal",
   },
+  {
+    id: "8",
+    title: "Tuna Wrap",
+    image: require("../assets/menu-7.png"),
+    time: "10 mins",
+    calories: "200kcal",
+  },
 ];
 
 const categoryData = [
@@ -319,7 +326,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "86%",
     alignSelf: "center",
-    marginTop: 24,
+    marginTop: 0,
   },
   nutritionText: {
     fontSize: 20,
