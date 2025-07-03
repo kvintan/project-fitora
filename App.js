@@ -19,6 +19,7 @@ import FoodDetail from "./screens/FoodDetail";
 import MyPlan from "./screens/MyPlan";
 import YourPlan from "./screens/YourPlan";
 import YourWorkout from "./screens/YourWorkout";
+import Profile from "./screens/Profile";
 
 const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
 
@@ -39,7 +40,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ExerciseListPage">
+      <Stack.Navigator initialRouteName="Profile">
         <Stack.Screen
           name="ExerciseListPage"
           component={ExerciseListPage}
@@ -113,6 +114,11 @@ export default function App() {
         <Stack.Screen
           name="YourWorkout"
           component={YourWorkout}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{ headerShown: false }}
         ></Stack.Screen>
       </Stack.Navigator>
