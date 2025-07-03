@@ -4,7 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FirstPage from "./screens/FirstPage";
 import Login from "./screens/Login";
+import ExerciseListPage from "./screens/ExerciseListPage";
 import { useFonts } from "expo-font";
+
 
 const stack = createNativeStackNavigator();
 
@@ -13,11 +15,18 @@ export default function App() {
     Unbounded: require("./assets/Unbounded/static/Unbounded-Black.ttf"),
     UnboundedSemiBold: require("./assets/Unbounded/static/Unbounded-SemiBold.ttf"),
     UnboundedLight: require("./assets/Unbounded/static/Unbounded-Light.ttf"),
+    Lexend: require("./assets/Lexend/static/Lexend-Regular.ttf"),
+    LexendBold: require("./assets/Lexend/static/Lexend-Bold.ttf"),
   });
 
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Login">
+      <stack.Navigator initialRouteName="ExerciseListPage">
+        <stack.Screen
+          name="ExerciseListPage"
+          component={ExerciseListPage}
+          options={{ headerShown: false }}
+        ></stack.Screen>
         <stack.Screen
           name="FirstPage"
           component={FirstPage}
