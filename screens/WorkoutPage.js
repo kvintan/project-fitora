@@ -67,10 +67,6 @@ export default function WorkoutPage() {
         />
       </ScrollView>
 
-      {/* NAVBAR Placeholder */}
-      <View style={styles.navbar}>
-        <Text style={{ color: "#000", fontWeight: "bold" }}>NAVBAR</Text>
-      </View>
     </View>
   );
 }

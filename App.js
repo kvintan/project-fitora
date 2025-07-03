@@ -12,6 +12,10 @@ import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
+import Homepage from "./screens/Homepage";
+import MyPlanPage from "./screens/MyPlanPage"
+import ProfilePage from "./screens/ProfilePage"
+import BottomTabs from "./BottomTabs";
 
 const stack = createNativeStackNavigator();
 
@@ -27,9 +31,18 @@ export default function App() {
     LexendLight: require("./assets/Lexend/static/Lexend-Light.ttf"),
   });
 
+    if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="WorkoutPage">
+      <stack.Navigator initialRouteName="Homepage">
+        <stack.Screen
+          name="Homepage"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        ></stack.Screen>
         <stack.Screen
           name="FirstPage"
           component={FirstPage}
@@ -75,6 +88,16 @@ export default function App() {
           component={FoodList}
           options={{ headerShown: false }}
         ></stack.Screen>
+        {/* <stack.Screen
+          name="MyPlanPage"
+          component={MyPlanPage}
+          options={{ headerShown: false }}
+        ></stack.Screen> */}
+        {/* <stack.Screen
+          name="ProfilePage"
+          component={ProfilePage}
+          options={{ headerShown: false }}
+        ></stack.Screen> */}
       </stack.Navigator>
     </NavigationContainer>
   );
