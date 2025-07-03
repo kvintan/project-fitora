@@ -180,8 +180,9 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 15,
     color: "#FFFFFF",
     fontFamily: "Lexend",
+    letterSpacing: 0.5,
   },
 });
