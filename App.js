@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="FoodList">
+      <stack.Navigator initialRouteName="NutritionTips">
         <stack.Screen
           name="FirstPage"
           component={FirstPage}

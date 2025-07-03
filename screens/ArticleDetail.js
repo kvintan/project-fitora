@@ -85,6 +85,6 @@ const styles = StyleSheet.create({
     fontFamily: "LexendRegular",
     color: "#ccc",
     lineHeight: 22,
-    textAlign: "center",
+    textAlign: "justify",
   },
 });
