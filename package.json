@@ -30,12 +30,8 @@
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-svg": "15.11.2",
-<<<<<<< HEAD
-    "react-native-web": "^0.20.0"
-=======
     "react-native-web": "^0.20.0",
     "@react-native-masked-view/masked-view": "0.3.2"
->>>>>>> 132bd56ad3f12bee1292b0872290e56b0177640b
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
