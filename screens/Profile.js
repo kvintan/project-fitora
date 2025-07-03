@@ -173,9 +173,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   sectionLabel: {
-    color: "#aaa",
+    color: "#fff",
     fontSize: 13,
-    fontFamily: "UnboundedLight",
+    fontFamily: "Unbounded",
+    fontWeight: "bold",
     marginTop: 24,
     marginBottom: 8,
   },
