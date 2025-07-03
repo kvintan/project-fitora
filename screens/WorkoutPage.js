@@ -106,11 +106,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    width: "100%",
   },
   title: {
     fontSize: 39,
     fontFamily: "Unbounded",
     color: "#FFFFFF",
+    width: "70%",
   },
   subtitle: {
     fontFamily: "UnboundedRegular",
