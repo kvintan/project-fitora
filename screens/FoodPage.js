@@ -53,21 +53,14 @@ const foodData = [
   },
   {
     id: "6",
-    title: "Tuna Wrap",
+    title: "Veggie Pesto Pasta",
     image: require("../assets/menu-6.png"),
     time: "20 mins",
     calories: "400kcal",
   },
   {
     id: "7",
-    title: "Tuna Wrap",
-    image: require("../assets/menu-7.png"),
-    time: "10 mins",
-    calories: "200kcal",
-  },
-  {
-    id: "8",
-    title: "Tuna Wrap",
+    title: "Egg Spinach Scramble",
     image: require("../assets/menu-7.png"),
     time: "10 mins",
     calories: "200kcal",
