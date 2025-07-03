@@ -6,6 +6,7 @@ import FirstPage from "./screens/FirstPage";
 import Login from "./screens/Login";
 import WorkoutPage from "./screens/WorkoutPage";
 import WorkoutType from "./screens/WorkoutType";
+import WorkoutTypeDetail from "./screens/WorkoutTypeDetail";
 import { useFonts } from "expo-font";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
@@ -27,7 +28,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="NutritionTips">
+      <stack.Navigator initialRouteName="WorkoutPage">
         <stack.Screen
           name="FirstPage"
           component={FirstPage}
@@ -46,6 +47,11 @@ export default function App() {
         <stack.Screen
           name="WorkoutType"
           component={WorkoutType}
+          options={{ headerShown: false }}
+        />
+        <stack.Screen
+          name="WorkoutTypeDetail"
+          component={WorkoutTypeDetail}
           options={{ headerShown: false }}
         />
         <stack.Screen
