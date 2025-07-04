@@ -68,7 +68,7 @@ export default function Login({ navigation }) {
         </View>
 
         <LinearGradient
-          colors={["#affa01", "#f2ff00"]}
+          colors={["#f2ff00", "#affa01"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={styles.loginButton}
