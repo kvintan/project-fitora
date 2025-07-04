@@ -16,8 +16,8 @@ import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
 import Homepage from "./screens/Homepage";
-import MyPlanPage from "./screens/MyPlanPage"
-import ProfilePage from "./screens/ProfilePage"
+import MyPlanPage from "./screens/MyPlanPage";
+import ProfilePage from "./screens/ProfilePage";
 import BottomTabs from "./BottomTabs";
 import FoodDetail from "./screens/FoodDetail";
 import MyPlan from "./screens/MyPlan";
@@ -45,7 +45,12 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="EditProfile">
+      <Stack.Navigator initialRouteName="Homepage">
+        <Stack.Screen
+          name="Homepage"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="ExerciseListPage"
           component={ExerciseListPage}
