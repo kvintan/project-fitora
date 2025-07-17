@@ -17,7 +17,7 @@ export default function FoodDetail() {
       {/* Back Button */}
       <TouchableOpacity
         style={styles.backButton}
-        onPress={() => navigation.navigate("FoodPage")}
+        onPress={() => navigation.goBack()}
       >
         <Image
           source={require("../assets/backButton.png")}

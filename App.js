@@ -45,9 +45,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Homepage">
+      <Stack.Navigator initialRouteName="MainTabs">
         <Stack.Screen
-          name="Homepage"
+          name="MainTabs"
           component={BottomTabs}
           options={{ headerShown: false }}
         />
@@ -72,11 +72,6 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="WorkoutPage"
-          component={WorkoutPage}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
           name="WorkoutType"
           component={WorkoutType}
           options={{ headerShown: false }}
@@ -84,11 +79,6 @@ export default function App() {
         <Stack.Screen
           name="WorkoutTypeDetail"
           component={WorkoutTypeDetail}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FoodPage"
-          component={FoodPage}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -124,11 +114,6 @@ export default function App() {
         <Stack.Screen
           name="YourWorkout"
           component={YourWorkout}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
           options={{ headerShown: false }}
         ></Stack.Screen>
         <Stack.Screen
