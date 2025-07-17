@@ -178,6 +178,9 @@ export default function FoodPage() {
               key={cat.id}
               colors={["#2F2F2F", "#393939"]}
               style={styles.categoryBox}
+              onTouchEnd={() =>
+                navigation.navigate("FoodList", { category: cat.title })
+              }
             >
               <Image source={cat.icon} style={styles.categoryIcon} />
               <Text style={styles.categoryLabel}>{cat.title}</Text>
@@ -187,7 +190,11 @@ export default function FoodPage() {
 
         <View style={styles.nutritionHeader}>
           <Text style={styles.nutritionText}>Nutrition Tips</Text>
-          <Text style={styles.seeMoreText}>See more &gt;&gt;</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("NutritionTips")}
+          >
+            <Text style={styles.seeMoreText}>See more &gt;&gt;</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.nutritionTipsContainer}>
