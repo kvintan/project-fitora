@@ -9,7 +9,6 @@ import {
   ScrollView,
   Platform,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
@@ -24,19 +23,18 @@ export default function WorkoutPage() {
         contentContainerStyle={{ paddingBottom: 120 }}
         showsVerticalScrollIndicator={false}
       >
-        {/* HEADER: judul page, icon buat ke page exercise list */}
+        {/* HEADER */}
         <View style={styles.header}>
           <Text style={styles.title}>Workout</Text>
           <TouchableOpacity onPress={() => navigation.navigate("ExerciseListPage")}>
-            {/* <Ionicons name="list-outline" size={26} color="#FFFFFF" /> */}
             <Image
-                source={require("../assets/list-icon.png")}
-                style={styles.listIcon}
+              source={require("../assets/list-icon.png")}
+              style={styles.listIcon}
             />
           </TouchableOpacity>
         </View>
 
-        {/* SUBTITLE: ini tagline buat page */}
+        {/* SUBTITLE */}
         <Text style={styles.subtitle}>Your Body, Your Pace, Your Power</Text>
 
         {/* BANNER */}
@@ -51,34 +49,32 @@ export default function WorkoutPage() {
           title="Strength"
           description="Build muscle, increase power, and train for long-term strength—using bodyweight or simple equipment."
           image={require("../assets/strength.png")}
+          category="Strength"
           navigation={navigation}
         />
         <WorkoutCard
           title="HIIT, Cardio"
           description="Burn calories fast and boost stamina with heart-pumping workouts—perfect for fat loss and energy."
-          image={require("../assets/cardio.png")}
+          image={require("../assets/hiit-cardio.png")}
+          category="HIIT, Cardio"
           navigation={navigation}
         />
         <WorkoutCard
           title="Warm Up, Recovery"
           description="Prepare your body before workouts and recover faster after—with light movements and calming stretches."
           image={require("../assets/recovery.png")}
+          category="Warm Up, Recovery"
           navigation={navigation}
         />
       </ScrollView>
-
-      {/* NAVBAR Placeholder */}
-      <View style={styles.navbar}>
-        <Text style={{ color: "#000", fontWeight: "bold" }}>NAVBAR</Text>
-      </View>
     </View>
   );
 }
 
-// Komponen kartu workout (horizontal layout)
-function WorkoutCard({ title, description, image, navigation }) {
+// Komponen kartu workout
+function WorkoutCard({ title, description, image, category, navigation }) {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("WorkoutType")}>
+    <TouchableOpacity onPress={() => navigation.navigate("WorkoutType", { category })}>
       <View style={styles.card}>
         <Image source={image} style={styles.cardImage} />
         <View style={styles.cardText}>
@@ -100,7 +96,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingTop: 50,
-    paddingBottom: 80, // ruang biar gak ketutup navbar
+    paddingBottom: 80,
   },
   header: {
     flexDirection: "row",
@@ -111,6 +107,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 39,
     fontFamily: "Unbounded",
+    fontWeight: "bold",
     color: "#FFFFFF",
     width: "70%",
   },
@@ -136,7 +133,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 30,
-    paddingBottom: 0,
     overflow: "hidden",
   },
   cardImage: {
@@ -154,6 +150,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 22,
     fontFamily: "Unbounded",
+    fontWeight: "bold",
     marginVertical: 15,
     marginHorizontal: 5,
   },
@@ -164,17 +161,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginBottom: 20,
     textAlign: "justify",
-  },
-  navbar: {
-    position: "absolute",
-    // bottom: Platform.OS === "android" ? 10 : 0,
-    bottom: 0,
-    width: "100%",
-    height: "60",
-    backgroundColor: "#D9D9D9",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 999,
-    elevation: 10,
   },
 });

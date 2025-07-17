@@ -15,11 +15,16 @@ import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
+import Homepage from "./screens/Homepage";
+import MyPlanPage from "./screens/MyPlanPage";
+import ProfilePage from "./screens/ProfilePage";
+import BottomTabs from "./BottomTabs";
 import FoodDetail from "./screens/FoodDetail";
 import MyPlan from "./screens/MyPlan";
 import YourPlan from "./screens/YourPlan";
 import YourWorkout from "./screens/YourWorkout";
 import Profile from "./screens/Profile";
+import EditProfile from "./screens/EditProfile";
 
 const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
 
@@ -40,7 +45,12 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Profile">
+      <Stack.Navigator initialRouteName="Homepage">
+        <Stack.Screen
+          name="Homepage"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="ExerciseListPage"
           component={ExerciseListPage}
@@ -119,6 +129,11 @@ export default function App() {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
           options={{ headerShown: false }}
         ></Stack.Screen>
       </Stack.Navigator>
