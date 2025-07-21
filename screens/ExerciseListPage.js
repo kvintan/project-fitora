@@ -48,7 +48,7 @@ const exercises = [
       {
         id: "2-1",
         title: "Squat",
-        image: require("../assets/upper-body.png"),
+        image: require("../assets/lower-body.png"),
         video: require("../assets/videos/push-up.mp4"),
         hints:
           "Keep your feet shoulder-width apart. Engage your core and keep your chest up. Push your hips back like sitting in a chair. Keep your knees in line with your toes. Go down until your thighs are at least parallel to the floor.",

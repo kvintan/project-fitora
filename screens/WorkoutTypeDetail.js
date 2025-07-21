@@ -205,8 +205,8 @@ const styles = StyleSheet.create({
   },
   exerciseImage: {
     width: 60,
-    height: 50,
-    resizeMode: "contain",
+    height: 52,
+    resizeMode: "cover",
   },
   exerciseInfo: {
     flex: 1,
