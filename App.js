@@ -28,6 +28,8 @@ import YourPlan from "./screens/YourPlan";
 import YourWorkout from "./screens/YourWorkout";
 import Profile from "./screens/Profile";
 import EditProfile from "./screens/EditProfile";
+import Register from "./screens/Register";
+import MyInfo from "./screens/MyInfo";
 
 const Stack = createNativeStackNavigator();
 
@@ -49,22 +51,96 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="MainTabs">
-        <Stack.Screen name="MainTabs" component={BottomTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="ExerciseListPage" component={ExerciseListPage} options={{ headerShown: false }} />
-        <Stack.Screen name="ExerciseDetail" component={ExerciseDetail} options={{ headerShown: false }} />
-        <Stack.Screen name="FirstPage" component={FirstPage} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="WorkoutType" component={WorkoutType} options={{ headerShown: false }} />
-        <Stack.Screen name="WorkoutTypeDetail" component={WorkoutTypeDetail} options={{ headerShown: false }} />
-        <Stack.Screen name="TrackingProgress" component={TrackingProgress} options={{ headerShown: false }} />
-        <Stack.Screen name="NutritionTips" component={NutritionTips} options={{ headerShown: false }} />
-        <Stack.Screen name="ArticleDetail" component={ArticleDetail} options={{ headerShown: false }} />
-        <Stack.Screen name="FoodList" component={FoodList} options={{ headerShown: false }} />
-        <Stack.Screen name="FoodDetail" component={FoodDetail} options={{ headerShown: false }} />
-        <Stack.Screen name="MyPlan" component={MyPlan} options={{ headerShown: false }} />
-        <Stack.Screen name="YourPlan" component={YourPlan} options={{ headerShown: false }} />
-        <Stack.Screen name="YourWorkout" component={YourWorkout} options={{ headerShown: false }} />
-        <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="MainTabs"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ExerciseListPage"
+          component={ExerciseListPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ExerciseDetail"
+          component={ExerciseDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FirstPage"
+          component={FirstPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WorkoutType"
+          component={WorkoutType}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WorkoutTypeDetail"
+          component={WorkoutTypeDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="TrackingProgress" 
+          component={TrackingProgress} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen
+          name="NutritionTips"
+          component={NutritionTips}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ArticleDetail"
+          component={ArticleDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FoodList"
+          component={FoodList}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FoodDetail"
+          component={FoodDetail}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="MyPlan"
+          component={MyPlan}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="YourPlan"
+          component={YourPlan}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="YourWorkout"
+          component={YourWorkout}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="MyInfo"
+          component={MyInfo}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

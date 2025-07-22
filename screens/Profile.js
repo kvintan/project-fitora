@@ -55,7 +55,10 @@ export default function Profile({ navigation }) {
         {/* Settings */}
         <Text style={styles.sectionLabel}>Settings</Text>
 
-        <TouchableOpacity style={styles.menuBox}>
+        <TouchableOpacity
+          style={styles.menuBox}
+          onPress={() => navigation.navigate("EditProfile")}
+        >
           <Image
             source={require("../assets/profile-edit.png")}
             style={styles.menuIcon}
@@ -119,7 +122,10 @@ export default function Profile({ navigation }) {
         </TouchableOpacity>
 
         <View style={styles.logoutContainer}>
-          <TouchableOpacity style={styles.menuBox}>
+          <TouchableOpacity
+            style={styles.menuBox}
+            onPress={() => navigation.navigate("Login")}
+          >
             <Image
               source={require("../assets/profile-logout.png")}
               style={styles.menuIcon}

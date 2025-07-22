@@ -314,7 +314,6 @@ const ExerciseListPage = ({ navigation }) => {
                     easier: sub.easier,
                   })
                 }
-
               >
                 <Image source={sub.image} style={styles.image} />
                 <Text style={styles.subTitle}>{sub.title}</Text>
@@ -328,7 +327,7 @@ const ExerciseListPage = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate("WorkoutPage")}
+        onPress={() => navigation.navigate("MainTabs")}
         style={styles.backButton}
       >
         <Image
