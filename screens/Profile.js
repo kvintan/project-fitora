@@ -122,7 +122,10 @@ export default function Profile({ navigation }) {
         </TouchableOpacity>
 
         <View style={styles.logoutContainer}>
-          <TouchableOpacity style={styles.menuBox}>
+          <TouchableOpacity
+            style={styles.menuBox}
+            onPress={() => navigation.navigate("Login")}
+          >
             <Image
               source={require("../assets/profile-logout.png")}
               style={styles.menuIcon}
