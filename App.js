@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="MainTabs">
         <Stack.Screen
           name="MainTabs"
           component={BottomTabs}
