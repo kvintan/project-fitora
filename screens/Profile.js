@@ -55,7 +55,10 @@ export default function Profile({ navigation }) {
         {/* Settings */}
         <Text style={styles.sectionLabel}>Settings</Text>
 
-        <TouchableOpacity style={styles.menuBox}>
+        <TouchableOpacity
+          style={styles.menuBox}
+          onPress={() => navigation.navigate("EditProfile")}
+        >
           <Image
             source={require("../assets/profile-edit.png")}
             style={styles.menuIcon}

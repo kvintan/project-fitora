@@ -16,7 +16,9 @@ import * as ImagePicker from "expo-image-picker";
 const { width, height } = Dimensions.get("window");
 
 export default function EditProfile({ navigation }) {
-  const [profileImage, setProfileImage] = useState(require("../assets/profile-user.png"));
+  const [profileImage, setProfileImage] = useState(
+    require("../assets/profile-user.png")
+  );
 
   const [editMode, setEditMode] = useState({
     name: false,
@@ -61,7 +63,9 @@ export default function EditProfile({ navigation }) {
             placeholderTextColor="#888"
           />
         ) : (
-          <TouchableOpacity onPress={() => setEditMode({ ...editMode, [key]: true })}>
+          <TouchableOpacity
+            onPress={() => setEditMode({ ...editMode, [key]: true })}
+          >
             <Text style={styles.infoValue}>{formData[key]}</Text>
           </TouchableOpacity>
         )}
@@ -76,8 +80,14 @@ export default function EditProfile({ navigation }) {
     >
       <View style={styles.overlay}></View>
 
-      <TouchableOpacity onPress={() => navigation.navigate("Profile")} style={styles.backButton}>
-        <Image source={require("../assets/backButton.png")} style={styles.backIcon} />
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={styles.backButton}
+      >
+        <Image
+          source={require("../assets/backButton.png")}
+          style={styles.backIcon}
+        />
       </TouchableOpacity>
 
       <KeyboardAvoidingView
