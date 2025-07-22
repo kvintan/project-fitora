@@ -19,7 +19,7 @@ const exercises = [
         id: "1-1",
         title: "Pull Up",
         image: require("../assets/upper-body.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/pull-up-landscape.mp4"),
         hints:
           "Grab the bar with your hands shoulder-width apart or slightly wider. Hang with arms fully extended. Engage your core and pull your chest toward the bar. Avoid swinging or using momentum. Keep your chin above the bar before lowering down with control.",
         breathing:
@@ -31,7 +31,7 @@ const exercises = [
         id: "1-2",
         title: "Push Up",
         image: require("../assets/push-up.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/push-up-landscape.mp4"),
         hints:
           "Engage your core and glutes. Keep your body in a straight line from head to heels. Do not arch or sag your back. Place your hands slightly wider than shoulder-width apart. Keep your elbows at about a 45-degree angle from your body. Lower your chest until it nearly touches the floor, then push back up.",
         breathing:
@@ -49,7 +49,7 @@ const exercises = [
         id: "2-1",
         title: "Squat",
         image: require("../assets/lower-body.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/squat-landscape.mp4"),
         hints:
           "Keep your feet shoulder-width apart. Engage your core and keep your chest up. Push your hips back like sitting in a chair. Keep your knees in line with your toes. Go down until your thighs are at least parallel to the floor.",
         breathing: "Inhale as you lower down. Exhale as you stand back up.",
@@ -59,7 +59,7 @@ const exercises = [
         id: "2-2",
         title: "One-Arm Deadlift",
         image: require("../assets/one-arm-deadlift.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/one-arm-deadlift-landscape.mp4"),
         hints:
           "Stand with feet hip-width apart. Hold the dumbbell in one hand and keep your back flat. Hinge at the hips while keeping the opposite arm extended for balance. Keep the movement controlled and avoid rounding your back.",
         breathing:
@@ -70,7 +70,7 @@ const exercises = [
         id: "2-3",
         title: "Deadlift",
         image: require("../assets/deadlift.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/deadlift-landscape.mp4"),
         hints:
           "Stand with feet shoulder-width apart, bar/dumbbells close to shins. Keep your back straight, core tight, and shoulders back. Hinge at the hips and bend knees to grab the weight. Lift by pushing through the heels.",
         breathing: "Inhale before you lift. Exhale as you rise to standing.",
@@ -80,7 +80,7 @@ const exercises = [
         id: "2-4",
         title: "Single Dumbbell Squat",
         image: require("../assets/single-dumbbell-squat.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/single-dumbbell-squat-landscape.mp4"),
         hints:
           "Hold the dumbbell close to your chest. Keep feet shoulder-width apart. Maintain a straight back and strong core. Lower down slowly and press through your heels to rise.",
         breathing: "Inhale while lowering. Exhale as you return to standing.",
@@ -97,7 +97,7 @@ const exercises = [
         id: "3-1",
         title: "Knee Raises",
         image: require("../assets/knee-raises.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/pull-up-landscape.mp4"),
         hints:
           "Hang from a pull-up bar or support your body on parallel bars. Keep your core tight. Raise your knees toward your chest in a controlled motion without swinging.",
         breathing: "Exhale as you lift your knees. Inhale as you lower them.",
@@ -107,7 +107,7 @@ const exercises = [
         id: "3-2",
         title: "One-Arm Deadlift",
         image: require("../assets/one-arm-deadlift.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/one-arm-deadlift-landscape.mp4"),
         hints:
           "Stand with feet hip-width apart. Hold the dumbbell in one hand and keep your back flat. Hinge at the hips while keeping the opposite arm extended for balance. Keep the movement controlled and avoid rounding your back.",
         breathing:
@@ -118,7 +118,7 @@ const exercises = [
         id: "3-3",
         title: "Deadlift",
         image: require("../assets/deadlift.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/deadlift-landscape.mp4"),
         hints:
           "Stand with feet shoulder-width apart, bar/dumbbells close to shins. Keep your back straight, core tight, and shoulders back. Hinge at the hips and bend knees to grab the weight. Lift by pushing through the heels.",
         breathing: "Inhale before you lift. Exhale as you rise to standing.",
@@ -128,7 +128,7 @@ const exercises = [
         id: "3-4",
         title: "Side Bends",
         image: require("../assets/side-bends.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/side-bends-landscape.mp4"),
         hints:
           "Stand upright with a dumbbell in one hand. Keep your other hand behind your head or on your waist. Slowly bend to the side, keeping your torso straight. Don’t twist.",
         breathing:
@@ -139,7 +139,7 @@ const exercises = [
         id: "3-5",
         title: "Weighted Crunches",
         image: require("../assets/weighted-crunches.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/weighted-crunches-landscape.mp4"),
         hints:
           "Lie on your back with knees bent and feet flat. Hold the weight on your chest or behind your head. Crunch upward by lifting your shoulders off the ground.",
         breathing: "Exhale during the crunch. Inhale on the way down.",
@@ -149,7 +149,7 @@ const exercises = [
         id: "3-6",
         title: "Russian Twist",
         image: require("../assets/russian-twist.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/russian-twist-landscape.mp4"),
         hints:
           "Sit on the floor with knees bent. Lean back slightly and lift your feet if possible. Hold a weight with both hands and twist your torso side to side.",
         breathing: "Exhale during each twist. Inhale as you return to center.",
@@ -159,7 +159,7 @@ const exercises = [
         id: "3-7",
         title: "Weighted Leg Lifts",
         image: require("../assets/weighted-leg-lifts.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/weighted-leg-lifts-landscape.mp4"),
         hints:
           "Lie on your back with a weight on your feet or between ankles. Keep legs straight and hands under hips. Slowly raise legs to 90 degrees, then lower without touching the floor.",
         breathing: "Exhale as you lift your legs. Inhale as you lower them.",
@@ -169,7 +169,7 @@ const exercises = [
         id: "3-8",
         title: "Mason Twist",
         image: require("../assets/mason-twist.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/mason-twist-landscape.mp4"),
         hints:
           "Sit with knees bent and heels off the floor. Hold a weight and twist your torso, tapping the weight to the floor on each side. Engage your core to maintain balance.",
         breathing: "Exhale with each twist. Inhale between sides.",
@@ -186,7 +186,7 @@ const exercises = [
         id: "4-1",
         title: "One-Arm Deadlift",
         image: require("../assets/one-arm-deadlift.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/one-arm-deadlift-landscape.mp4"),
         hints:
           "Stand with feet hip-width apart. Hold the dumbbell in one hand and keep your back flat. Hinge at the hips while keeping the opposite arm extended for balance. Keep the movement controlled and avoid rounding your back.",
         breathing:
@@ -197,7 +197,7 @@ const exercises = [
         id: "4-2",
         title: "Knee Raises",
         image: require("../assets/knee-raises.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/pull-up-landscape.mp4"),
         hints:
           "Hang from a pull-up bar or support your body on parallel bars. Keep your core tight. Raise your knees toward your chest in a controlled motion without swinging.",
         breathing: "Exhale as you lift your knees. Inhale as you lower them.",
@@ -207,7 +207,7 @@ const exercises = [
         id: "4-3",
         title: "Deadlift",
         image: require("../assets/deadlift.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/deadlift-landscape.mp4"),
         hints:
           "Stand with feet shoulder-width apart, bar/dumbbells close to shins. Keep your back straight, core tight, and shoulders back. Hinge at the hips and bend knees to grab the weight. Lift by pushing through the heels.",
         breathing: "Inhale before you lift. Exhale as you rise to standing.",
@@ -224,7 +224,7 @@ const exercises = [
         id: "5-1",
         title: "Side Bends",
         image: require("../assets/side-bends.png"),
-        video: require("../assets/videos/push-up.mp4"),
+        video: require("../assets/video/side-bends-landscape.mp4"),
         hints:
           "Stand upright with a dumbbell in one hand. Keep your other hand behind your head or on your waist. Slowly bend to the side, keeping your torso straight. Don’t twist.",
         breathing:
