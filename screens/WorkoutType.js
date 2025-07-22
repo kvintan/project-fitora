@@ -35,7 +35,7 @@ export default function WorkoutType() {
                     exercises: [
                         { name: "Deadlift", duration: "30s", image: "deadlift", videoSource: require("../assets/video/deadlift-potrait.mp4")},
                         { name: "Side Bends", duration: "30s", image: "side-bends", videoSource: require("../assets/video/side-bends-potrait.mp4") },
-                        { name: "Rest", duration: "30s" },
+                        { name: "Rest", duration: "30s", videoSource: require("../assets/video/rest-potrait.mp4") },
                         { name: "Weighted Leg Lifts", duration: "30s", image: "weighted-leg-lifts", videoSource: require("../assets/video/weighted-leg-lifts-potrait.mp4") },
                         { name: "Mason Twist", duration: "30s", image: "mason-twist", videoSource: require("../assets/video/mason-twist-potrait.mp4") },
                     ],
@@ -54,7 +54,7 @@ export default function WorkoutType() {
                         { name: "Rest", duration: "30s" },
                         { name: "Deadlift", duration: "30s", image: "deadlift", videoSource: require("../assets/video/deadlift-potrait.mp4") },
                         { name: "Side Bends", duration: "40s", image: "side-bends", videoSource: require("../assets/video/side-bends-potrait.mp4") },
-                        { name: "Rest", duration: "30s" },
+                        { name: "Rest", duration: "30s", videoSource: require("../assets/video/rest-potrait.mp4") },
                         { name: "Weighted Crunches", duration: "30s", image: "weighted-crunches", videoSource: require("../assets/video/weighted-crunches-potrait.mp4") },
                         { name: "Russian Twist", duration: "30s", image: "russian-twist", videoSource: require("../assets/video/russian-twist-potrait.mp4") },
                         { name: "Rest", duration: "30s" },
@@ -74,7 +74,7 @@ export default function WorkoutType() {
                     exercises: [
                         { name: "Push Up", duration: "30s", image: "push-up", videoSource: require("../assets/video/push-up-potrait.mp4") },
                         { name: "Pull Up", duration: "30s", image: "upper-body", videoSource: require("../assets/video/pull-up-potrait.mp4") },
-                        { name: "Rest", duration: "30s" },
+                        { name: "Rest", duration: "30s", videoSource: require("../assets/video/rest-potrait.mp4") },
                         { name: "Deadlift", duration: "30s", image: "deadlift", videoSource: require("../assets/video/deadlift-potrait.mp4") },
                         { name: "Mason Twist", duration: "30s", image: "mason-twist", videoSource: require("../assets/video/mason-twist-potrait.mp4") },
                     ],
@@ -90,7 +90,7 @@ export default function WorkoutType() {
                     exercises: [
                         { name: "One-Arm Deadlift", duration: "30s", image: "one-arm-deadlift", videoSource: require("../assets/video/one-arm-deadlift-potrait.mp4") },
                         { name: "Side Bends", duration: "30s", image: "side-bends", videoSource: require("../assets/video/side-bends-potrait.mp4") },
-                        { name: "Rest", duration: "30s" },
+                        { name: "Rest", duration: "30s", videoSource: require("../assets/video/rest-potrait.mp4") },
                         { name: "Deadlift", duration: "30s", image: "deadlift", videoSource: require("../assets/video/deadlift-potrait.mp4") },
                         { name: "Weighted Leg Lifts", duration: "30s", image: "weighted-leg-lifts", videoSource: require("../assets/video/weighted-leg-lifts-potrait.mp4") },
                     ],
@@ -114,7 +114,7 @@ export default function WorkoutType() {
                     exercises: [
                         { name: "Knee Raises", duration: "25s", image: "knee-raises", videoSource: require("../assets/video/pull-up-potrait.mp4") },
                         { name: "Deadlift", duration: "25s", image: "deadlift", videoSource: require("../assets/video/deadlift-potrait.mp4") },
-                        { name: "Rest", duration: "30s" },
+                        { name: "Rest", duration: "30s", videoSource: require("../assets/video/rest-potrait.mp4") },
                         { name: "Russian Twist", duration: "25s", image: "russian-twist", videoSource: require("../assets/video/russian-twist-potrait.mp4") },
                         { name: "Side Bends", duration: "30s", image: "side-bends", videoSource: require("../assets/video/side-bends-potrait.mp4") },
                     ],
@@ -138,7 +138,7 @@ export default function WorkoutType() {
                     exercises: [
                         { name: "Knee Raises", duration: "30s", image: "knee-raises", videoSource: require("../assets/video/pull-up-potrait.mp4") },
                         { name: "Mason Twist", duration: "30s", image: "mason-twist", videoSource: require("../assets/video/mason-twist-potrait.mp4") },
-                        { name: "Rest", duration: "30s" },
+                        { name: "Rest", duration: "30s", videoSource: require("../assets/video/rest-potrait.mp4") },
                         { name: "Side Bends", duration: "30s", image: "side-bends", videoSource: require("../assets/video/side-bends-potrait.mp4") },
                         { name: "Russian Twist", duration: "30s", image: "russian-twist", videoSource: require("../assets/video/russian-twist-potrait.mp4") },
                     ],
