@@ -11,6 +11,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Alert,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import CheckBox from "expo-checkbox";
@@ -21,8 +22,6 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remindMe, setRemindMe] = useState(false);
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
 
   const validateEmail = (email) => {
     return email.endsWith("@gmail.com");
@@ -34,27 +33,20 @@ export default function Login({ navigation }) {
   };
 
   const handleLogin = () => {
-    let isValid = true;
-
     if (!validateEmail(email)) {
-      setEmailError("Email must end with @gmail.com");
-      isValid = false;
-    } else {
-      setEmailError("");
+      Alert.alert("Invalid Email", "Email must end with @gmail.com");
+      return;
     }
 
     if (!validatePassword(password)) {
-      setPasswordError(
+      Alert.alert(
+        "Invalid Password",
         "Password must be at least 8 characters and include letters, numbers, and symbols"
       );
-      isValid = false;
-    } else {
-      setPasswordError("");
+      return;
     }
 
-    if (isValid) {
-      navigation.navigate("MainTabs");
-    }
+    navigation.navigate("MainTabs");
   };
 
   return (
@@ -92,9 +84,6 @@ export default function Login({ navigation }) {
               value={email}
               onChangeText={setEmail}
             />
-            {emailError !== "" && (
-              <Text style={styles.errorText}>{emailError}</Text>
-            )}
 
             <Text style={styles.label}>Password</Text>
             <TextInput
@@ -105,9 +94,6 @@ export default function Login({ navigation }) {
               value={password}
               onChangeText={setPassword}
             />
-            {passwordError !== "" && (
-              <Text style={styles.errorText}>{passwordError}</Text>
-            )}
 
             <View style={styles.reminderRow}>
               <View style={styles.remindMeContainer}>
@@ -187,13 +173,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 12,
     color: "#fff",
-    fontFamily: "UnboundedLight",
-  },
-  errorText: {
-    color: "#FF5555",
-    fontSize: 10,
-    marginBottom: 8,
-    marginLeft: 4,
     fontFamily: "UnboundedLight",
   },
   reminderRow: {
