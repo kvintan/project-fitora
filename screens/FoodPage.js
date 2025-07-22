@@ -14,6 +14,7 @@ import Carousel from "react-native-reanimated-carousel";
 import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
+const cardWidth = width * 0.3; // 30% dari screen, bukan dari container
 
 const foodData = [
   {
@@ -178,6 +179,7 @@ export default function FoodPage() {
               key={cat.id}
               colors={["#2F2F2F", "#393939"]}
               style={styles.categoryBox}
+              onTouchEnd={() => navigation.navigate("FoodList")}
             >
               <Image source={cat.icon} style={styles.categoryIcon} />
               <Text style={styles.categoryLabel}>{cat.title}</Text>
@@ -187,21 +189,35 @@ export default function FoodPage() {
 
         <View style={styles.nutritionHeader}>
           <Text style={styles.nutritionText}>Nutrition Tips</Text>
-          <Text style={styles.seeMoreText}>See more &gt;&gt;</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("NutritionTips")}
+          >
+            <Text style={styles.seeMoreText}>See more &gt;&gt;</Text>
+          </TouchableOpacity>
         </View>
 
-        <View style={styles.nutritionTipsContainer}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.nutritionTipsContainer}
+        >
           {nutritionTipsData.map((tip) => (
-            <LinearGradient
+            <TouchableOpacity
               key={tip.id}
-              colors={["#2F2F2F", "#393939"]}
-              style={styles.nutritionCard}
+              onPress={() => navigation.navigate("ArticleDetail")}
+              activeOpacity={0.8}
+              style={{ marginRight: 12 }}
             >
-              <Image source={tip.image} style={styles.nutritionImage} />
-              <Text style={styles.nutritionLabel}>{tip.title}</Text>
-            </LinearGradient>
+              <LinearGradient
+                colors={["#2F2F2F", "#393939"]}
+                style={[styles.nutritionCard, { width: cardWidth }]}
+              >
+                <Image source={tip.image} style={styles.nutritionImage} />
+                <Text style={styles.nutritionLabel}>{tip.title}</Text>
+              </LinearGradient>
+            </TouchableOpacity>
           ))}
-        </View>
+        </ScrollView>
       </ScrollView>
     </ImageBackground>
   );
@@ -352,18 +368,19 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontFamily: "Unbounded",
   },
-  nutritionTipsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 24,
-    marginTop: 10,
-  },
   nutritionCard: {
-    width: "30%",
+    width: cardWidth,
+    marginBottom: 12,
     borderRadius: 12,
     height: 120,
     alignItems: "center",
     justifyContent: "center",
+  },
+  nutritionTipsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    paddingHorizontal: 24,
+    marginTop: 10,
   },
   nutritionImage: {
     width: 201,

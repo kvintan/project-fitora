@@ -6,10 +6,10 @@ import { View, Text } from "react-native";
 
 // Import screen yang kamu punya
 import WorkoutPage from "./screens/WorkoutPage";
-import MyPlanPage from "./screens/MyPlanPage";
+import MyPlan from "./screens/MyPlan";
 import Homepage from "./screens/Homepage";
 import FoodPage from "./screens/FoodPage";
-import ProfilePage from "./screens/ProfilePage";
+import Profile from "./screens/Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -53,7 +53,7 @@ export default function BottomTabs() {
         tabBarStyle: {
           position: "absolute",
           bottom: 25,
-          marginHorizontal: 13, 
+          marginHorizontal: 13,
           backgroundColor: "#000",
           borderRadius: 35,
           height: 70,
@@ -82,7 +82,7 @@ export default function BottomTabs() {
       />
       <Tab.Screen
         name="MyPlan"
-        component={MyPlanPage}
+        component={MyPlan}
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon
@@ -113,7 +113,7 @@ export default function BottomTabs() {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfilePage}
+        component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon name="person-outline" label="Profile" focused={focused} />

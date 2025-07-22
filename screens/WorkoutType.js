@@ -8,141 +8,192 @@ import {
     ScrollView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function WorkoutType() {
     const navigation = useNavigation();
+    const route = useRoute();
+    const { category } = route.params;
+
+    const workoutContent = {
+        Strength: {
+            banner: require("../assets/strength-banner.png"),
+            title: "Strength",
+            description:
+                "Build muscle, increase power, and train for long-term strength—using bodyweight or simple equipment.",
+            workouts: [
+                {
+                    name: "Full Body",
+                    image: require("../assets/fullbody.png"),
+                    banner: require("../assets/banner-fullbody.png"),
+                    description: "A balanced strength workout targeting all muscle groups for overall fitness.",
+                    duration: "10 min",
+                    calories: "65 calories",
+                    level: "Beginner",
+                    exercises: [
+                        { name: "Deadlift", duration: "30s", image: "deadlift" },
+                        { name: "Side Bends", duration: "30s", image: "side-bends" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Weighted Leg Lifts", duration: "30s", image: "weighted-leg-lifts" },
+                        { name: "Mason Twist", duration: "30s", image: "mason-twist" },
+                    ],
+                },
+                {
+                    name: "Insane Six Pack",
+                    image: require("../assets/insane-sixpack.png"),
+                    banner: require("../assets/banner-insane.png"),
+                    description: "A high-intensity ab workout to push your core to the limit and get those six-pack lines popping.",
+                    duration: "10 min",
+                    calories: "62 calories",
+                    level: "Beginner",
+                    exercises: [
+                        { name: "Knee Raises", duration: "30s", image: "knee-raises" },
+                        { name: "One-Arm Deadlift", duration: "40s", image: "one-arm-deadlift" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Deadlift", duration: "30s", image: "deadlift" },
+                        { name: "Side Bends", duration: "40s", image: "side-bends" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Weighted Crunches", duration: "30s", image: "weighted-crunches" },
+                        { name: "Russian Twist", duration: "30s", image: "russian-twist" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Weighted Leg Lifts", duration: "30s", image: "weighted-leg-lifts" },
+                        { name: "Mason Twist", duration: "30s", image: "mason-twist" },
+                        { name: "Single Dumbbell Squat", duration: "40s", image: "single-dumbbell-squat" },
+                    ],
+                },
+                {
+                    name: "Complex Upper Body",
+                    image: require("../assets/complex-upper.png"),
+                    banner: require("../assets/banner-upper.png"),
+                    description: "Advanced workout focused on chest, arms, and shoulders with dynamic dumbbell movements.",
+                    duration: "10 min",
+                    calories: "72 calories",
+                    level: "Intermediate",
+                    exercises: [
+                        { name: "Push Up", duration: "30s", image: "push-up" },
+                        { name: "Pull Up", duration: "30s", image: "upper-body" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Deadlift", duration: "30s", image: "deadlift" },
+                        { name: "Mason Twist", duration: "30s", image: "mason-twist" },
+                    ],
+                },
+                {
+                    name: "Complex Lower Body",
+                    image: require("../assets/complex-lower.png"),
+                    banner: require("../assets/banner-lower.png"),
+                    description: "Target legs and glutes with this intense lower-body workout using compound exercises.",
+                    duration: "10 min",
+                    calories: "69 calories",
+                    level: "Intermediate",
+                    exercises: [
+                        { name: "One-Arm Deadlift", duration: "30s", image: "one-arm-deadlift" },
+                        { name: "Side Bends", duration: "30s", image: "side-bends" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Deadlift", duration: "30s", image: "deadlift" },
+                        { name: "Weighted Leg Lifts", duration: "30s", image: "weighted-leg-lifts" },
+                    ],
+                },
+            ],
+        },
+        "HIIT, Cardio": {
+            banner: require("../assets/hiit-cardio-banner.png"),
+            title: "HIIT & Cardio",
+            description:
+                "Burn calories fast and boost stamina with heart-pumping workouts—perfect for fat loss and energy.",
+            workouts: [
+                {
+                    name: "HIIT",
+                    image: require("../assets/hiit.png"),
+                    banner: require("../assets/banner-hiit.png"),
+                    description: "High-intensity interval training that mixes strength and cardio for maximum fat burn.",
+                    duration: "10 min",
+                    calories: "81 calories",
+                    level: "Advanced",
+                    exercises: [
+                        { name: "Knee Raises", duration: "25s", image: "knee-raises" },
+                        { name: "Deadlift", duration: "25s", image: "deadlift" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Russian Twist", duration: "25s", image: "russian-twist" },
+                        { name: "Side Bends", duration: "30s", image: "side-bends" },
+                    ],
+                },
+            ],
+        },
+        "Warm Up, Recovery": {
+            banner: require("../assets/recovery-banner.png"),
+            title: "Warm Up & Recovery",
+            description:
+                "Prepare your body before workouts and recover faster after—with light movements and calming stretches.",
+            workouts: [
+                {
+                    name: "Warm Up",
+                    image: require("../assets/warmup.png"),
+                    banner: require("../assets/banner-warmup.png"),
+                    description: "Gentle dynamic warm-up to get your muscles ready and improve range of motion.",
+                    duration: "8 min",
+                    calories: "40 calories",
+                    level: "Beginner",
+                    exercises: [
+                        { name: "Knee Raises", duration: "30s", image: "knee-raises" },
+                        { name: "Mason Twist", duration: "30s", image: "mason-twist" },
+                        { name: "Rest", duration: "30s" },
+                        { name: "Side Bends", duration: "30s", image: "side-bends" },
+                        { name: "Russian Twist", duration: "30s", image: "russian-twist" },
+                    ],
+                },
+            ],
+        },
+    };
+
+    const { banner, title, description, workouts } = workoutContent[category] || {};
 
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={{ paddingBottom: 50 }}>
-                {/* BACK BUTTON + BANNER */}
                 <View style={styles.bannerWrapper}>
-                    {/* <TouchableOpacity
-                        onPress={() => navigation.goBack()}
-                        style={styles.backButton}
-                    >
-                        <Ionicons name="chevron-back" size={28} color="#fff" />
-                    </TouchableOpacity> */}
-
-                    <TouchableOpacity
-                        onPress={() => navigation.goBack()}
-                        style={styles.backButton}>
-
-                        <Image
-                            source={require("../assets/backButton.png")}
-                            style={styles.backIcon}
-                        />
+                    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+                        <Image source={require("../assets/backButton.png")} style={styles.backIcon} />
                     </TouchableOpacity>
-
-                    <Image
-                        source={require("../assets/strength-banner.png")}
-                        style={styles.bannerImage}
-                        resizeMode="cover"
-                    />
+                    <Image source={banner} style={styles.bannerImage} resizeMode="cover" />
                 </View>
 
-                {/* TITLE & DESC */}
                 <View style={styles.headerContent}>
-                    {/* Gradient Text */}
-                    <MaskedView
-                        maskElement={<Text style={styles.gradientText}>Strength</Text>}
-                    >
+                    <MaskedView maskElement={<Text style={styles.gradientText}>{title}</Text>}>
                         <LinearGradient
                             colors={["#F2FF00", "#AFFA01"]}
                             start={{ x: 0, y: 0 }}
                             end={{ x: 1, y: 0 }}
                         >
-                            <Text style={[styles.gradientText, { opacity: 0 }]}>Strength</Text>
+                            <Text style={[styles.gradientText, { opacity: 0 }]}>{title}</Text>
                         </LinearGradient>
                     </MaskedView>
-
-                    <Text style={styles.description}>
-                        Build muscle, increase power, and train for long-term strength—using
-                        bodyweight or simple equipment.
-                    </Text>
+                    <Text style={styles.description}>{description}</Text>
                 </View>
 
-                {/* SECTION: Full Body */}
-                <WorkoutSection
-                    title="Full Body"
-                    items={[{ name: "Full Body", image: require("../assets/fullbody.png") }]}
-                    onPress={() => navigation.navigate("WorkoutTypeDetail")}
-                />
-
-                {/* SECTION: Abs & Core */}
-                <WorkoutSection
-                    title="Abs & Core"
-                    items={[
-                        { name: "Insane Six Pack", image: require("../assets/insane-sixpack.png") },
-                        { name: "Complex Core", image: require("../assets/complex-core.png") },
-                        { name: "Strong Back", image: require("../assets/strong-back.png") },
-                    ]}
-                    onPress={() => navigation.navigate("WorkoutTypeDetail")}
-                />
-
-                {/* SECTION: Upper Body */}
-                <WorkoutSection
-                    title="Upper Body"
-                    items={[
-                        { name: "Complex Upper Body", image: require("../assets/complex-upper.png") },
-                        { name: "Chest & Arms", image: require("../assets/chest-arms.png") },
-                        { name: "Shoulders & Upper Back", image: require("../assets/shoulders.png") },
-                    ]}
-                    onPress={() => navigation.navigate("WorkoutTypeDetail")}
-                />
-
-                {/* SECTION: Lower Body */}
-                <WorkoutSection
-                    title="Lower Body"
-                    items={[
-                        { name: "Complex Lower Body", image: require("../assets/complex-lower.png") },
-                        { name: "Power Jumps", image: require("../assets/power-jumps.png") },
-                        { name: "Amazing Butts", image: require("../assets/amazing-butts.png") },
-                    ]}
-                    onPress={() => navigation.navigate("WorkoutTypeDetail")}
-                />
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>Workouts</Text>
+                    {workouts.map((item, index) => (
+                        <TouchableOpacity
+                            key={index}
+                            style={styles.item}
+                            onPress={() => navigation.navigate("WorkoutTypeDetail", { workout: item })}
+                        >
+                            <Image source={item.image} style={styles.itemImage} />
+                            <Text style={styles.itemText}>{item.name}</Text>
+                            <Ionicons name="chevron-forward" size={20} color="#fff" />
+                        </TouchableOpacity>
+                    ))}
+                </View>
             </ScrollView>
         </View>
     );
 }
 
-// Komponen Bagian Workout
-function WorkoutSection({ title, items, onPress }) {
-    return (
-        <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{title}</Text>
-            {items.map((item, index) => (
-                <TouchableOpacity key={index} style={styles.item} onPress={onPress}>
-                    <Image source={item.image} style={styles.itemImage} />
-                    <Text style={styles.itemText}>{item.name}</Text>
-                    <Ionicons name="chevron-forward" size={20} color="#fff" />
-                </TouchableOpacity>
-            ))}
-        </View>
-    );
-}
-
-// STYLE
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#1C1C1C",
-    },
-    bannerWrapper: {
-        position: "relative",
-    },
-    // backButton: {
-    //     position: "absolute",
-    //     top: 20,
-    //     left: 20,
-    //     zIndex: 10,
-    //     backgroundColor: "#00000080",
-    //     borderRadius: 20,
-    //     padding: 5,
-    // },
+    container: { flex: 1, backgroundColor: "#1C1C1C" },
+    bannerWrapper: { position: "relative" },
     backButton: {
         position: "absolute",
         top: 30,
@@ -150,25 +201,19 @@ const styles = StyleSheet.create({
         padding: 8,
         zIndex: 10,
     },
-    backIcon: {
-        width: 35,
-        height: 35,
-        resizeMode: "contain",
-    },
+    backIcon: { width: 35, height: 35, resizeMode: "contain" },
     bannerImage: {
         width: "100%",
         height: 220,
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
     },
-    headerContent: {
-        paddingHorizontal: 20,
-        paddingVertical: 15,
-    },
+    headerContent: { paddingHorizontal: 20, paddingVertical: 15 },
     gradientText: {
         fontSize: 39,
         fontFamily: "Unbounded",
-        color: "black", // akan di-mask
+        fontWeight: "bold",
+        color: "black",
         marginBottom: 10,
     },
     description: {
@@ -184,6 +229,7 @@ const styles = StyleSheet.create({
     sectionTitle: {
         fontSize: 16,
         fontFamily: "Unbounded",
+        fontWeight: "bold",
         color: "#CFED89",
         marginBottom: 10,
     },

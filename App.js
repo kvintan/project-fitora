@@ -16,8 +16,8 @@ import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
 import Homepage from "./screens/Homepage";
-import MyPlanPage from "./screens/MyPlanPage"
-import ProfilePage from "./screens/ProfilePage"
+import MyPlanPage from "./screens/MyPlanPage";
+import ProfilePage from "./screens/ProfilePage";
 import BottomTabs from "./BottomTabs";
 import FoodDetail from "./screens/FoodDetail";
 import MyPlan from "./screens/MyPlan";
@@ -45,7 +45,12 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="EditProfile">
+      <Stack.Navigator initialRouteName="MainTabs">
+        <Stack.Screen
+          name="MainTabs"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="ExerciseListPage"
           component={ExerciseListPage}
@@ -67,11 +72,6 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="WorkoutPage"
-          component={WorkoutPage}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
           name="WorkoutType"
           component={WorkoutType}
           options={{ headerShown: false }}
@@ -79,11 +79,6 @@ export default function App() {
         <Stack.Screen
           name="WorkoutTypeDetail"
           component={WorkoutTypeDetail}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FoodPage"
-          component={FoodPage}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -119,11 +114,6 @@ export default function App() {
         <Stack.Screen
           name="YourWorkout"
           component={YourWorkout}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
           options={{ headerShown: false }}
         ></Stack.Screen>
         <Stack.Screen

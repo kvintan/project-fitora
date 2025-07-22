@@ -60,7 +60,7 @@ export default function FoodList() {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.navigate("FoodPage")}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             source={require("../assets/backButton.png")}
             style={styles.backButtonImage}
