@@ -1,3 +1,5 @@
+// 📁 File: App.js
+
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -7,10 +9,11 @@ import { useFonts } from "expo-font";
 import FirstPage from "./screens/FirstPage";
 import Login from "./screens/Login";
 import ExerciseListPage from "./screens/ExerciseListPage";
-import ExerciseDetail from "./screens/ExerciseDetail"; // ✅ PENTING: Tambahkan ini
+import ExerciseDetail from "./screens/ExerciseDetail";
 import WorkoutPage from "./screens/WorkoutPage";
 import WorkoutType from "./screens/WorkoutType";
 import WorkoutTypeDetail from "./screens/WorkoutTypeDetail";
+import TrackingProgress from "./screens/TrackingProgress"; // ✅ Tambahkan ini
 import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
@@ -26,7 +29,7 @@ import YourWorkout from "./screens/YourWorkout";
 import Profile from "./screens/Profile";
 import EditProfile from "./screens/EditProfile";
 
-const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -46,81 +49,22 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="MainTabs">
-        <Stack.Screen
-          name="MainTabs"
-          component={BottomTabs}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ExerciseListPage"
-          component={ExerciseListPage}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ExerciseDetail"
-          component={ExerciseDetail}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FirstPage"
-          component={FirstPage}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="WorkoutType"
-          component={WorkoutType}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="WorkoutTypeDetail"
-          component={WorkoutTypeDetail}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="NutritionTips"
-          component={NutritionTips}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ArticleDetail"
-          component={ArticleDetail}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FoodList"
-          component={FoodList}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FoodDetail"
-          component={FoodDetail}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
-          name="MyPlan"
-          component={MyPlan}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
-          name="YourPlan"
-          component={YourPlan}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
-          name="YourWorkout"
-          component={YourWorkout}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
-          name="EditProfile"
-          component={EditProfile}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
+        <Stack.Screen name="MainTabs" component={BottomTabs} options={{ headerShown: false }} />
+        <Stack.Screen name="ExerciseListPage" component={ExerciseListPage} options={{ headerShown: false }} />
+        <Stack.Screen name="ExerciseDetail" component={ExerciseDetail} options={{ headerShown: false }} />
+        <Stack.Screen name="FirstPage" component={FirstPage} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="WorkoutType" component={WorkoutType} options={{ headerShown: false }} />
+        <Stack.Screen name="WorkoutTypeDetail" component={WorkoutTypeDetail} options={{ headerShown: false }} />
+        <Stack.Screen name="TrackingProgress" component={TrackingProgress} options={{ headerShown: false }} />
+        <Stack.Screen name="NutritionTips" component={NutritionTips} options={{ headerShown: false }} />
+        <Stack.Screen name="ArticleDetail" component={ArticleDetail} options={{ headerShown: false }} />
+        <Stack.Screen name="FoodList" component={FoodList} options={{ headerShown: false }} />
+        <Stack.Screen name="FoodDetail" component={FoodDetail} options={{ headerShown: false }} />
+        <Stack.Screen name="MyPlan" component={MyPlan} options={{ headerShown: false }} />
+        <Stack.Screen name="YourPlan" component={YourPlan} options={{ headerShown: false }} />
+        <Stack.Screen name="YourWorkout" component={YourWorkout} options={{ headerShown: false }} />
+        <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
