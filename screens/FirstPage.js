@@ -108,7 +108,10 @@ export default function LoginScreen({ navigation }) {
         />
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonRegister}>
+          <TouchableOpacity
+            style={styles.buttonRegister}
+            onPress={() => navigation.navigate("Register")}
+          >
             <Text style={styles.buttonTextRegister}>Register</Text>
           </TouchableOpacity>
 

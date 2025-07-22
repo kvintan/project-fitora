@@ -26,6 +26,7 @@ import YourWorkout from "./screens/YourWorkout";
 import Profile from "./screens/Profile";
 import EditProfile from "./screens/EditProfile";
 import Register from "./screens/Register";
+import MyInfo from "./screens/MyInfo";
 
 const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
 
@@ -46,7 +47,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Register">
+      <Stack.Navigator initialRouteName="FirstPage">
         <Stack.Screen
           name="MainTabs"
           component={BottomTabs}
@@ -125,6 +126,11 @@ export default function App() {
         <Stack.Screen
           name="Register"
           component={Register}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="MyInfo"
+          component={MyInfo}
           options={{ headerShown: false }}
         ></Stack.Screen>
       </Stack.Navigator>
