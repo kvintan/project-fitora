@@ -1,3 +1,5 @@
+// 📁 File: App.js
+
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -7,10 +9,11 @@ import { useFonts } from "expo-font";
 import FirstPage from "./screens/FirstPage";
 import Login from "./screens/Login";
 import ExerciseListPage from "./screens/ExerciseListPage";
-import ExerciseDetail from "./screens/ExerciseDetail"; // ✅ PENTING: Tambahkan ini
+import ExerciseDetail from "./screens/ExerciseDetail";
 import WorkoutPage from "./screens/WorkoutPage";
 import WorkoutType from "./screens/WorkoutType";
 import WorkoutTypeDetail from "./screens/WorkoutTypeDetail";
+import TrackingProgress from "./screens/TrackingProgress"; // ✅ Tambahkan ini
 import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
@@ -26,9 +29,13 @@ import YourWorkout from "./screens/YourWorkout";
 import Profile from "./screens/Profile";
 import EditProfile from "./screens/EditProfile";
 import Register from "./screens/Register";
+<<<<<<< HEAD
 import OnProgressPlanDetail from "./screens/OnProgressPlanDetail";
+=======
+import MyInfo from "./screens/MyInfo";
+>>>>>>> 07445ec452e21fb082265e811dcb96996d5b99a4
 
-const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -47,7 +54,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
+<<<<<<< HEAD
       <Stack.Navigator initialRouteName="OnProgressPlanDetail">
+=======
+      <Stack.Navigator initialRouteName="MainTabs">
+>>>>>>> 07445ec452e21fb082265e811dcb96996d5b99a4
         <Stack.Screen
           name="MainTabs"
           component={BottomTabs}
@@ -82,6 +93,11 @@ export default function App() {
           name="WorkoutTypeDetail"
           component={WorkoutTypeDetail}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="TrackingProgress" 
+          component={TrackingProgress} 
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="NutritionTips"
@@ -131,6 +147,11 @@ export default function App() {
         <Stack.Screen
           name="Register"
           component={Register}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="MyInfo"
+          component={MyInfo}
           options={{ headerShown: false }}
         ></Stack.Screen>
       </Stack.Navigator>

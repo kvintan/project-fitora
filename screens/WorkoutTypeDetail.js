@@ -7,7 +7,6 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -92,7 +91,14 @@ export default function WorkoutTypeDetail() {
             end={{ x: 1, y: 0 }}
             style={styles.startButton}
           >
-            <TouchableOpacity style={styles.touchable}>
+            <TouchableOpacity
+              style={styles.touchable}
+              onPress={() =>
+                navigation.navigate("TrackingProgress", {
+                  exercises: workout.exercises,
+                })
+              }
+            >
               <Text style={styles.startButtonText}>Start Session</Text>
             </TouchableOpacity>
           </LinearGradient>

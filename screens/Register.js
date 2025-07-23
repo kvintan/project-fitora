@@ -105,7 +105,7 @@ export default function Register({ navigation }) {
 
             <TouchableOpacity
               style={styles.registerButton}
-              onPress={handleRegister}
+              onPress={() => navigation.navigate("MyInfo")}
             >
               <LinearGradient
                 colors={["#D6FF00", "#3ADF00"]}
