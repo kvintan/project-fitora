@@ -26,6 +26,7 @@ import YourWorkout from "./screens/YourWorkout";
 import Profile from "./screens/Profile";
 import EditProfile from "./screens/EditProfile";
 import Register from "./screens/Register";
+import OnProgressPlanDetail from "./screens/OnProgressPlanDetail";
 
 const Stack = createNativeStackNavigator(); // ✅ Gunakan huruf kapital: Stack
 
@@ -46,7 +47,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Register">
+      <Stack.Navigator initialRouteName="OnProgressPlanDetail">
         <Stack.Screen
           name="MainTabs"
           component={BottomTabs}
@@ -110,6 +111,11 @@ export default function App() {
         <Stack.Screen
           name="YourPlan"
           component={YourPlan}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="OnProgressPlanDetail"
+          component={OnProgressPlanDetail}
           options={{ headerShown: false }}
         ></Stack.Screen>
         <Stack.Screen
