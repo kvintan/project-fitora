@@ -49,6 +49,7 @@ const TabIcon = ({ name, label, focused }) => {
 export default function BottomTabs() {
   return (
     <Tab.Navigator
+    initialRouteName="Home"
       screenOptions={{
         tabBarStyle: {
           position: "absolute",
@@ -62,9 +63,9 @@ export default function BottomTabs() {
           borderTopWidth: 0,
 
           shadowColor: "#000",
-          shadowOffset: { width: 0, height: 0 },
-          shadowOpacity: 0.5,
-          shadowRadius: 20,
+          shadowOffset: { width: 0, height: 10 },
+          shadowOpacity: 1,
+          shadowRadius: 50,
         },
 
         headerShown: false,
@@ -86,12 +87,12 @@ export default function BottomTabs() {
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon
-              name="calendar-check-outline"
+              name="calendar-outline"
               label="MyPlan"
               focused={focused}
             />
           ),
-        }}
+        }}  
       />
       <Tab.Screen
         name="Home"
