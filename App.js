@@ -13,7 +13,7 @@ import ExerciseDetail from "./screens/ExerciseDetail";
 import WorkoutPage from "./screens/WorkoutPage";
 import WorkoutType from "./screens/WorkoutType";
 import WorkoutTypeDetail from "./screens/WorkoutTypeDetail";
-import TrackingProgress from "./screens/TrackingProgress"; // ✅ Tambahkan ini
+import TrackingProgress from "./screens/TrackingProgress";
 import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
@@ -31,6 +31,7 @@ import EditProfile from "./screens/EditProfile";
 import Register from "./screens/Register";
 import OnProgressPlanDetail from "./screens/OnProgressPlanDetail";
 import MyInfo from "./screens/MyInfo";
+import Statistic from "./screens/Statistic";
 
 const Stack = createNativeStackNavigator();
 
@@ -51,7 +52,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FirstPage">
+      <Stack.Navigator initialRouteName="MyPlan">
         <Stack.Screen
           name="MainTabs"
           component={BottomTabs}
@@ -87,14 +88,11 @@ export default function App() {
           component={WorkoutTypeDetail}
           options={{ headerShown: false }}
         />
-<<<<<<< HEAD
         <Stack.Screen
           name="TrackingProgress"
           component={TrackingProgress}
           options={{ headerShown: false }}
         />
-=======
->>>>>>> 2b2dcd0dc746108805631fac3fd77552d6d646c2
         <Stack.Screen
           name="NutritionTips"
           component={NutritionTips}
@@ -146,16 +144,15 @@ export default function App() {
           options={{ headerShown: false }}
         ></Stack.Screen>
         <Stack.Screen
-          name="TrackingProgress"
-          component={TrackingProgress}
-          options={{ headerShown: false }}
-        ></Stack.Screen>
-        <Stack.Screen
           name="MyInfo"
           component={MyInfo}
           options={{ headerShown: false }}
         ></Stack.Screen>
-        
+        <Stack.Screen
+          name="Statistic"
+          component={Statistic}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

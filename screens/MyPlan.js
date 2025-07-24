@@ -21,7 +21,10 @@ export default function MyPlan({ navigation }) {
             Your Path, Your Routine, Your Results
           </Text>
         </View>
-        <TouchableOpacity style={styles.statsIconButton}>
+        <TouchableOpacity
+          style={styles.statsIconButton}
+          onPress={() => navigation.navigate("Statistic")}
+        >
           <Image
             source={require("../assets/my-plan-statistics.png")}
             style={styles.statsIcon}
@@ -73,7 +76,9 @@ export default function MyPlan({ navigation }) {
       {/* On Progress Plan */}
       <Text style={styles.sectionTitle}>On Progress Plan</Text>
 
-      <TouchableOpacity onPress={() => navigation.navigate("OnProgressPlanDetail")}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("OnProgressPlanDetail")}
+      >
         <ImageBackground
           source={require("../assets/my-plan-progress-plan.png")}
           style={styles.progressImage}
