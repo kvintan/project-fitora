@@ -189,6 +189,18 @@ const exercises = [
         breathing: "Exhale with each twist. Inhale between sides.",
         easier: "Keep your feet on the floor or use no weight.",
       },
+      {
+        id: "3-9",
+        title: "Push Up",
+        itemTitle: "Upper Body, Abs & Core",
+        image: require("../assets/push-up.png"),
+        video: require("../assets/video/push-up-landscape.mp4"),
+        hints:
+          "Engage your core and glutes. Keep your body in a straight line from head to heels. Do not arch or sag your back. Place your hands slightly wider than shoulder-width apart. Keep your elbows at about a 45-degree angle from your body. Lower your chest until it nearly touches the floor, then push back up.",
+        breathing:
+          "Inhale as you lower your body. Exhale as you push yourself back up.",
+        easier: "Drop your knees to the ground to do knee push-ups.",
+      },
     ],
   },
   {
@@ -229,6 +241,17 @@ const exercises = [
           "Stand with feet shoulder-width apart, bar/dumbbells close to shins. Keep your back straight, core tight, and shoulders back. Hinge at the hips and bend knees to grab the weight. Lift by pushing through the heels.",
         breathing: "Inhale before you lift. Exhale as you rise to standing.",
         easier: "Use dumbbells or a resistance band instead of a barbell.",
+      },
+      {
+        id: "4-4",
+        title: "Squat",
+        itemTitle: "Lower Body, Cardio",
+        image: require("../assets/lower-body.png"),
+        video: require("../assets/video/squat-landscape.mp4"),
+        hints:
+          "Keep your feet shoulder-width apart. Engage your core and keep your chest up. Push your hips back like sitting in a chair. Keep your knees in line with your toes. Go down until your thighs are at least parallel to the floor.",
+        breathing: "Inhale as you lower down. Exhale as you stand back up.",
+        easier: "Use a chair for support and reduce the depth of your squat.",
       },
     ],
   },

@@ -23,6 +23,16 @@ const exerciseImages = {
   "single-dumbbell-squat": require("../assets/single-dumbbell-squat.png"),
   "push-up": require("../assets/push-up.png"),
   "upper-body": require("../assets/upper-body.png"),
+  "lower-body": require("../assets/lower-body.png"),
+  "rotation-resistance": require("../assets/rotation-resistance.png"),
+  "inchworms": require("../assets/inchworms.png"),
+  "front-kicks": require("../assets/front-kicks.png"),
+  "running-in-place": require("../assets/running-in-place.png"),
+  "ankle-twist": require("../assets/ankle-twist.png"),
+  "side-bend": require("../assets/side-bend.png"),
+  "supine-marching": require("../assets/supine-marching.png"),
+  "side-to-side-reach": require("../assets/side-to-side-reach.png"),
+  "triangle-pose": require("../assets/triangle-pose.png"),
 };
 
 export default function WorkoutTypeDetail() {
