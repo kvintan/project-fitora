@@ -6,10 +6,69 @@ import {
   Image,
   ScrollView,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Homepage() {
+  const navigation = useNavigation();
+
+  // ✅ DATA UNTUK POPULAR PLAN
+  const popularPlans = [
+    {
+      title: "30-Day Core Catalyst:\nUnleash Your Six-Pack",
+      subtitle: "30 Days | Core strength, definition, fat burn",
+      image: require("../assets/my-plan-recommendation-1.png"),
+    },
+    {
+      title: "Spartan Back:\nDominate with Pure\nPosterior Power",
+      subtitle: "30 Days | Upper, mid, and lower back",
+      image: require("../assets/my-plan-recommendation-2.png"),
+    },
+  ];
+
+  // ✅ DATA UNTUK FAMOUS TRAINEE
+  const famousTrainees = [
+    {
+      title: "Arnold Ultimate Strength\nTransform",
+      subtitle: "45 Days | Full Body Mass Gain",
+      image: require("../assets/my-plan-recommendation-2.png"),
+    },
+    {
+      title: "Chris Core Crusher\nExtreme Abs",
+      subtitle: "21 Days | Core endurance & stability",
+      image: require("../assets/my-plan-recommendation-1.png"),
+    },
+  ];
+
+  // ✅ FUNGSI UNTUK BIKIN CARD (BIAR DRY)
+  const renderCard = (item, index) => (
+    <TouchableOpacity
+      key={index}
+      activeOpacity={0.85}
+      onPress={() =>
+        navigation.navigate("OnProgressPlanDetail", { planData: item })
+      }
+    >
+      <ImageBackground
+        source={item.image}
+        style={styles.recommendationCard}
+        imageStyle={{ borderRadius: 12 }}
+      >
+        <LinearGradient
+          colors={["rgba(0,0,0,0)", "#000000"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
+          style={styles.recommendationContent}
+        >
+          <Text style={styles.recommendationTitle}>{item.title}</Text>
+          <Text style={styles.recommendationSubtitle}>{item.subtitle}</Text>
+        </LinearGradient>
+      </ImageBackground>
+    </TouchableOpacity>
+  );
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* Header */}
@@ -27,105 +86,28 @@ export default function Homepage() {
         resizeMode="cover"
       />
 
-      {/* Popular Plan */}
+      {/* POPULAR PLAN SECTION */}
       <Text style={styles.sectionTitle}>Popular Plan</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         style={styles.recommendationWrapper}
       >
-        <ImageBackground
-          source={require("../assets/my-plan-recommendation-1.png")}
-          style={styles.recommendationCard}
-          imageStyle={{ borderRadius: 12 }}
-        >
-          <LinearGradient
-            colors={["rgba(0,0,0,0)", "#000000"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.recommendationContent}
-          >
-            <Text style={styles.recommendationTitle}>
-              30-Day Core Catalyst:{"\n"}Unleash Your Six-Pack
-            </Text>
-            <Text style={styles.recommendationSubtitle}>
-              30 Days | Core strength, definition, fat burn
-            </Text>
-          </LinearGradient>
-        </ImageBackground>
-
-        <ImageBackground
-          source={require("../assets/my-plan-recommendation-2.png")}
-          style={styles.recommendationCard}
-          imageStyle={{ borderRadius: 12 }}
-        >
-          <LinearGradient
-            colors={["rgba(0,0,0,0)", "#000000"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.recommendationContent}
-          >
-            <Text style={styles.recommendationTitle}>
-              Spartan Back:{"\n"}Dominate with Pure{"\n"}Posterior Power
-            </Text>
-            <Text style={styles.recommendationSubtitle}>
-              30 Days | Upper, mid, and lower back
-            </Text>
-          </LinearGradient>
-        </ImageBackground>
+        {popularPlans.map((item, index) => renderCard(item, index))}
       </ScrollView>
 
-      {/* Famous Trainee */}
+      {/* FAMOUS TRAINEE SECTION */}
       <Text style={styles.sectionTitle}>Famous Trainee</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         style={styles.recommendationWrapper}
       >
-        <ImageBackground
-          source={require("../assets/my-plan-recommendation-1.png")}
-          style={styles.recommendationCard}
-          imageStyle={{ borderRadius: 12 }}
-        >
-          <LinearGradient
-            colors={["rgba(0,0,0,0)", "#000000"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.recommendationContent}
-          >
-            <Text style={styles.recommendationTitle}>
-              30-Day Core Catalyst:{"\n"}Unleash Your Six-Pack
-            </Text>
-            <Text style={styles.recommendationSubtitle}>
-              30 Days | Core strength, definition, fat burn
-            </Text>
-          </LinearGradient>
-        </ImageBackground>
+        {famousTrainees.map((item, index) => renderCard(item, index))}
+      </ScrollView>
 
-        <ImageBackground
-          source={require("../assets/my-plan-recommendation-2.png")}
-          style={styles.recommendationCard}
-          imageStyle={{ borderRadius: 12 }}
-        >
-          <LinearGradient
-            colors={["rgba(0,0,0,0)", "#000000"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.recommendationContent}
-          >
-            <Text style={styles.recommendationTitle}>
-              Spartan Back:{"\n"}Dominate with Pure{"\n"}Posterior Power
-            </Text>
-            <Text style={styles.recommendationSubtitle}>
-              30 Days | Upper, mid, and lower back
-            </Text>
-          </LinearGradient>
-        </ImageBackground>
-      </ScrollView>
-      <ScrollView>
-        {/* Konten lainnya */}
-        <View style={{ height: 80 }} />
-      </ScrollView>
+      {/* Spacer biar ga ketutupan tab bar */}
+      <View style={{ height: 80 }} />
     </ScrollView>
   );
 }

@@ -87,11 +87,14 @@ export default function App() {
           component={WorkoutTypeDetail}
           options={{ headerShown: false }}
         />
+<<<<<<< HEAD
         <Stack.Screen
           name="TrackingProgress"
           component={TrackingProgress}
           options={{ headerShown: false }}
         />
+=======
+>>>>>>> 2b2dcd0dc746108805631fac3fd77552d6d646c2
         <Stack.Screen
           name="NutritionTips"
           component={NutritionTips}
@@ -143,10 +146,16 @@ export default function App() {
           options={{ headerShown: false }}
         ></Stack.Screen>
         <Stack.Screen
+          name="TrackingProgress"
+          component={TrackingProgress}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
           name="MyInfo"
           component={MyInfo}
           options={{ headerShown: false }}
         ></Stack.Screen>
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

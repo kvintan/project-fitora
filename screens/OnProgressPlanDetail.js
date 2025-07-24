@@ -53,14 +53,14 @@ export default function YourPlan({ navigation }) {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.navigate("YourPlan")}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             source={require("../assets/backButton.png")}
             style={styles.backIcon}
           />
         </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Your Workout Plan</Text>
+        <Text style={styles.headerTitle}>Shanella's Plan</Text>
       </View>
 
       {/* Workout Cards */}
