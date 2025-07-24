@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Image, // ✅ Tambahkan ini
+  Image,
 } from "react-native";
 import { Video } from "expo-av";
 
@@ -17,7 +17,7 @@ const ExerciseDetail = ({ route, navigation }) => {
     <SafeAreaView style={styles.container}>
       {/* Back Button */}
       <TouchableOpacity
-        onPress={() => navigation.navigate("ExerciseListPage")} 
+        onPress={() => navigation.goBack()}
         style={styles.backButton}
       >
         <Image
@@ -26,25 +26,23 @@ const ExerciseDetail = ({ route, navigation }) => {
         />
       </TouchableOpacity>
 
-      {/* Title & Category */}
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.category}>Category: {category}</Text>
+      {/* Konten Scrollable */}
+      <ScrollView contentContainerStyle={styles.contentContainer} showsVerticalScrollIndicator={false}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.category}>Category: {category}</Text>
 
-      {/* Video */}
-      <Video
-        source={video}
-        rate={1.0}
-        volume={1.0}
-        isMuted={false}
-        resizeMode="contain"
-        shouldPlay
-        isLooping
-        useNativeControls={true}
-        style={styles.video}
-      />
+        <Video
+          source={video}
+          rate={1.0}
+          volume={1.0}
+          isMuted={false}
+          resizeMode="contain"
+          shouldPlay
+          isLooping
+          useNativeControls={true}
+          style={styles.video}
+        />
 
-      {/* Instruction */}
-      <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.instructionTitle}>Instruction</Text>
 
         <Text style={styles.sectionTitle}>Hints</Text>
@@ -66,11 +64,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#0f0f0f",
-    paddingTop: 40,
   },
   backButton: {
     position: "absolute",
-    top: 55,
+    top: 50, // sedikit di bawah status bar
     left: 15,
     zIndex: 10,
     padding: 8,
@@ -80,12 +77,17 @@ const styles = StyleSheet.create({
     height: 35,
     resizeMode: "contain",
   },
+  contentContainer: {
+    paddingTop: 20,
+    paddingHorizontal: 20,
+    paddingBottom: 30,
+  },
   title: {
     fontSize: 26,
     fontFamily: "UnboundedSemiBold",
     color: "white",
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 40,
   },
   category: {
     fontSize: 15,
@@ -95,17 +97,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   video: {
-    width: "90%",
+    width: "100%",
     height: 200,
     alignSelf: "center",
     borderRadius: 20,
     backgroundColor: "#000",
     marginVertical: 10,
     borderWidth: 2,
-  },
-  contentContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 30,
   },
   instructionTitle: {
     fontSize: 20,
