@@ -11,7 +11,7 @@ import ExerciseDetail from "./screens/ExerciseDetail";
 import WorkoutPage from "./screens/WorkoutPage";
 import WorkoutType from "./screens/WorkoutType";
 import WorkoutTypeDetail from "./screens/WorkoutTypeDetail";
-import TrackingProgress from "./screens/TrackingProgress"; // ✅ Tambahkan ini
+import TrackingProgress from "./screens/TrackingProgress";
 import FoodPage from "./screens/FoodPage";
 import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
@@ -27,7 +27,9 @@ import YourWorkout from "./screens/YourWorkout";
 import Profile from "./screens/Profile";
 import EditProfile from "./screens/EditProfile";
 import Register from "./screens/Register";
+import OnProgressPlanDetail from "./screens/OnProgressPlanDetail";
 import MyInfo from "./screens/MyInfo";
+import Statistic from "./screens/Statistic";
 
 const Stack = createNativeStackNavigator();
 
@@ -48,7 +50,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainTabs">
+      <Stack.Navigator initialRouteName="MyPlan">
         <Stack.Screen
           name="MainTabs"
           component={BottomTabs}
@@ -120,6 +122,11 @@ export default function App() {
           options={{ headerShown: false }}
         ></Stack.Screen>
         <Stack.Screen
+          name="OnProgressPlanDetail"
+          component={OnProgressPlanDetail}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
           name="YourWorkout"
           component={YourWorkout}
           options={{ headerShown: false }}
@@ -145,6 +152,11 @@ export default function App() {
           component={MyInfo}
           options={{ headerShown: false }}
         ></Stack.Screen>
+        <Stack.Screen
+          name="Statistic"
+          component={Statistic}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

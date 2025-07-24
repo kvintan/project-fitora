@@ -193,7 +193,8 @@ const styles = StyleSheet.create({
     color: "#FFF",
   },
   nextButton: {
-    marginLeft: 115,
+    marginTop: 5,
+    marginRight: 0,
   },
   nextIcon: {
     width: 60,

@@ -10,7 +10,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { ImageBackground } from "react-native";
 
-export default function MyPlan() {
+export default function MyPlan({ navigation }) {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* Header */}
@@ -21,7 +21,10 @@ export default function MyPlan() {
             Your Path, Your Routine, Your Results
           </Text>
         </View>
-        <TouchableOpacity style={styles.statsIconButton}>
+        <TouchableOpacity
+          style={styles.statsIconButton}
+          onPress={() => navigation.navigate("Statistic")}
+        >
           <Image
             source={require("../assets/my-plan-statistics.png")}
             style={styles.statsIcon}
@@ -31,54 +34,73 @@ export default function MyPlan() {
 
       {/* Custom Cards */}
       <View style={styles.customCardsWrapper}>
+        {/* Custom Workout */}
         <LinearGradient
           colors={["#2F2F2F", "#393939"]}
           style={styles.customCard}
         >
-          <Text style={styles.cardTitle}>Custom Workout</Text>
-          <Text style={styles.cardSubtitle}>Train Your Style</Text>
-          <Image
-            source={require("../assets/my-plan-workout-logo.png")}
-            style={styles.cardIconBottomRight}
-          />
+          <TouchableOpacity
+            style={{ flex: 1 }}
+            onPress={() => navigation.navigate("YourWorkout")}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.cardTitle}>Custom Workout</Text>
+            <Text style={styles.cardSubtitle}>Train Your Style</Text>
+            <Image
+              source={require("../assets/my-plan-workout-logo.png")}
+              style={styles.cardIconBottomRight}
+            />
+          </TouchableOpacity>
         </LinearGradient>
 
+        {/* Custom Plan */}
         <LinearGradient
           colors={["#2F2F2F", "#393939"]}
           style={styles.customCard}
         >
-          <Text style={styles.cardTitle}>Custom Plan</Text>
-          <Text style={styles.cardSubtitle}>Train Your Style</Text>
-          <Image
-            source={require("../assets/my-plan-plan-icon.png")}
-            style={styles.cardIconBottomRight}
-          />
+          <TouchableOpacity
+            style={{ flex: 1 }}
+            onPress={() => navigation.navigate("YourPlan")}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.cardTitle}>Custom Plan</Text>
+            <Text style={styles.cardSubtitle}>Train Your Style</Text>
+            <Image
+              source={require("../assets/my-plan-plan-icon.png")}
+              style={styles.cardIconBottomRight}
+            />
+          </TouchableOpacity>
         </LinearGradient>
       </View>
 
       {/* On Progress Plan */}
       <Text style={styles.sectionTitle}>On Progress Plan</Text>
-      <ImageBackground
-        source={require("../assets/my-plan-progress-plan.png")}
-        style={styles.progressImage}
-        imageStyle={{ borderRadius: 12 }}
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate("OnProgressPlanDetail")}
       >
-        <LinearGradient
-          colors={["rgba(0,0,0,0)", "rgba(0,0,0,1)"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={styles.progressContent}
+        <ImageBackground
+          source={require("../assets/my-plan-progress-plan.png")}
+          style={styles.progressImage}
+          imageStyle={{ borderRadius: 12 }}
         >
-          <Text style={styles.progressLabelTop}>7 DAY PLAN</Text>
-          <Text style={styles.progressTitle}>Shanella's Plan</Text>
-          <Text style={styles.progressSubtitle}>Progress</Text>
-          <Image
-            source={require("../assets/my-plan-progress-bar.png")}
-            style={styles.progressBar}
-          />
-          <Text style={styles.progressDay}>3/7 Day</Text>
-        </LinearGradient>
-      </ImageBackground>
+          <LinearGradient
+            colors={["rgba(0,0,0,0)", "rgba(0,0,0,1)"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+            style={styles.progressContent}
+          >
+            <Text style={styles.progressLabelTop}>7 DAY PLAN</Text>
+            <Text style={styles.progressTitle}>Shanella's Plan</Text>
+            <Text style={styles.progressSubtitle}>Progress</Text>
+            <Image
+              source={require("../assets/my-plan-progress-bar.png")}
+              style={styles.progressBar}
+            />
+            <Text style={styles.progressDay}>3/7 Day</Text>
+          </LinearGradient>
+        </ImageBackground>
+      </TouchableOpacity>
 
       {/* On Progress Workout */}
       <Text style={styles.sectionTitle}>On Progress Workout</Text>
@@ -175,7 +197,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: 14,
     color: "#CFED89",
     fontFamily: "LexendRegular",
     marginTop: 4,
@@ -216,8 +238,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     position: "absolute",
-    right: 12,
-    bottom: 12,
+    right: 2,
+    bottom: -6,
     resizeMode: "contain",
   },
   sectionTitle: {
