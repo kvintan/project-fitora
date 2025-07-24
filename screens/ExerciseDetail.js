@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontFamily: "UnboundedSemiBold",
     color: "white",
     textAlign: "center",
-    marginTop: 15,
+    marginTop: 25,
   },
   category: {
     fontSize: 15,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   video: {
-    width: "90%",
+    width: "100%",
     height: 200,
     alignSelf: "center",
     borderRadius: 20,
