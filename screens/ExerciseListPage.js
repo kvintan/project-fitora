@@ -18,6 +18,7 @@ const exercises = [
       {
         id: "1-1",
         title: "Pull Up",
+        itemTitle: "Upper Body",
         image: require("../assets/upper-body.png"),
         video: require("../assets/video/pull-up-landscape.mp4"),
         hints:
@@ -30,6 +31,7 @@ const exercises = [
       {
         id: "1-2",
         title: "Push Up",
+        itemTitle: "Upper Body, Abs & Core",
         image: require("../assets/push-up.png"),
         video: require("../assets/video/push-up-landscape.mp4"),
         hints:
@@ -48,6 +50,7 @@ const exercises = [
       {
         id: "2-1",
         title: "Squat",
+        itemTitle: "Lower Body, Cardio",
         image: require("../assets/lower-body.png"),
         video: require("../assets/video/squat-landscape.mp4"),
         hints:
@@ -58,6 +61,7 @@ const exercises = [
       {
         id: "2-2",
         title: "One-Arm Deadlift",
+        itemTitle: "Lower Body, Abs & Core, Cardio",
         image: require("../assets/one-arm-deadlift.png"),
         video: require("../assets/video/one-arm-deadlift-landscape.mp4"),
         hints:
@@ -69,6 +73,7 @@ const exercises = [
       {
         id: "2-3",
         title: "Deadlift",
+        itemTitle: "Lower Body, Abs & Core, Cardio",
         image: require("../assets/deadlift.png"),
         video: require("../assets/video/deadlift-landscape.mp4"),
         hints:
@@ -79,6 +84,7 @@ const exercises = [
       {
         id: "2-4",
         title: "Single Dumbbell Squat",
+        itemTitle: "Lower Body, Abs & Core, Cardio",
         image: require("../assets/single-dumbbell-squat.png"),
         video: require("../assets/video/single-dumbbell-squat-landscape.mp4"),
         hints:
@@ -96,6 +102,7 @@ const exercises = [
       {
         id: "3-1",
         title: "Knee Raises",
+        itemTitle: "Abs & Core, Cardio",
         image: require("../assets/knee-raises.png"),
         video: require("../assets/video/pull-up-landscape.mp4"),
         hints:
@@ -106,6 +113,7 @@ const exercises = [
       {
         id: "3-2",
         title: "One-Arm Deadlift",
+        itemTitle: "Lower Body, Abs & Core, Cardio",
         image: require("../assets/one-arm-deadlift.png"),
         video: require("../assets/video/one-arm-deadlift-landscape.mp4"),
         hints:
@@ -117,6 +125,7 @@ const exercises = [
       {
         id: "3-3",
         title: "Deadlift",
+        itemTitle: "Lower Body, Abs & Core, Cardio",
         image: require("../assets/deadlift.png"),
         video: require("../assets/video/deadlift-landscape.mp4"),
         hints:
@@ -127,6 +136,7 @@ const exercises = [
       {
         id: "3-4",
         title: "Side Bends",
+        itemTitle: "Abs & Core, Cardio",
         image: require("../assets/side-bends.png"),
         video: require("../assets/video/side-bends-landscape.mp4"),
         hints:
@@ -138,6 +148,7 @@ const exercises = [
       {
         id: "3-5",
         title: "Weighted Crunches",
+        itemTitle: "Abs & Core",
         image: require("../assets/weighted-crunches.png"),
         video: require("../assets/video/weighted-crunches-landscape.mp4"),
         hints:
@@ -148,6 +159,7 @@ const exercises = [
       {
         id: "3-6",
         title: "Russian Twist",
+        itemTitle: "Abs & Core, Cardio",
         image: require("../assets/russian-twist.png"),
         video: require("../assets/video/russian-twist-landscape.mp4"),
         hints:
@@ -158,6 +170,7 @@ const exercises = [
       {
         id: "3-7",
         title: "Weighted Leg Lifts",
+        itemTitle: "Abs & Core",
         image: require("../assets/weighted-leg-lifts.png"),
         video: require("../assets/video/weighted-leg-lifts-landscape.mp4"),
         hints:
@@ -168,6 +181,7 @@ const exercises = [
       {
         id: "3-8",
         title: "Mason Twist",
+        itemTitle: "Abs & Core, Cardio",
         image: require("../assets/mason-twist.png"),
         video: require("../assets/video/mason-twist-landscape.mp4"),
         hints:
@@ -185,6 +199,7 @@ const exercises = [
       {
         id: "4-1",
         title: "One-Arm Deadlift",
+        itemTitle: "Lower Body, Abs & Core, Cardio",
         image: require("../assets/one-arm-deadlift.png"),
         video: require("../assets/video/one-arm-deadlift-landscape.mp4"),
         hints:
@@ -196,6 +211,7 @@ const exercises = [
       {
         id: "4-2",
         title: "Knee Raises",
+        itemTitle: "Abs & Core, Cardio",
         image: require("../assets/knee-raises.png"),
         video: require("../assets/video/pull-up-landscape.mp4"),
         hints:
@@ -206,6 +222,7 @@ const exercises = [
       {
         id: "4-3",
         title: "Deadlift",
+        itemTitle: "Lower Body, Abs & Core, Cardio",
         image: require("../assets/deadlift.png"),
         video: require("../assets/video/deadlift-landscape.mp4"),
         hints:
@@ -223,6 +240,7 @@ const exercises = [
       {
         id: "5-1",
         title: "Side Bends",
+        itemTitle: "Abs & Core, Cardio",
         image: require("../assets/side-bends.png"),
         video: require("../assets/video/side-bends-landscape.mp4"),
         hints:
@@ -307,7 +325,7 @@ const ExerciseListPage = ({ navigation }) => {
                 onPress={() =>
                   navigation.navigate("ExerciseDetail", {
                     title: sub.title,
-                    category: item.title,
+                    category: sub.itemTitle,
                     video: sub.video,
                     hints: sub.hints,
                     breathing: sub.breathing,
