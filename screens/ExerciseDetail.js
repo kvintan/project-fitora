@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontFamily: "UnboundedSemiBold",
     color: "white",
     textAlign: "center",
-    marginTop: 25,
+    marginTop: 40,
   },
   category: {
     fontSize: 15,
