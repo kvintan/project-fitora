@@ -15,7 +15,7 @@ import * as ImagePicker from "expo-image-picker";
 
 const { width, height } = Dimensions.get("window");
 
-export default function EditProfile({ navigation }) {
+export default function EditProfile({ navigation, route }) {
   const [profileImage, setProfileImage] = useState(
     require("../assets/profile-user.png")
   );
@@ -74,6 +74,7 @@ export default function EditProfile({ navigation }) {
   );
 
   return (
+
     <ImageBackground
       source={require("../assets/background-login-page.png")}
       style={styles.image}
@@ -89,6 +90,7 @@ export default function EditProfile({ navigation }) {
           style={styles.backIcon}
         />
       </TouchableOpacity>
+
 
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -106,6 +108,21 @@ export default function EditProfile({ navigation }) {
         {renderInfoBox("Birthday", "birthday")}
         {renderInfoBox("Height", "height")}
         {renderInfoBox("Weight", "weight")}
+
+        <TouchableOpacity
+          style={styles.saveButton}
+          onPress={() => {
+            const imageToSend = profileImage?.uri ? profileImage.uri : null;
+            navigation.navigate("Profile", {
+              formData,
+              profileImage: imageToSend,
+            });
+          }}
+
+
+        >
+          <Text style={styles.saveButtonText}>SAVE</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     </ImageBackground>
   );
@@ -199,4 +216,20 @@ const styles = StyleSheet.create({
     minWidth: "40%",
     textAlign: "right",
   },
+  saveButton: {
+    marginTop: 20,
+    backgroundColor: "#B7F65C",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 25,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  saveButtonText: {
+    fontFamily: "Unbounded",
+    fontSize: 14,
+    color: "#000",
+    fontWeight: "bold",
+  },
+
 });

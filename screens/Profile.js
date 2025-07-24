@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -13,7 +13,28 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const { width, height } = Dimensions.get("window");
 
-export default function Profile({ navigation }) {
+export default function Profile({ navigation, route }) {
+  const [formData, setFormData] = useState({
+    name: "Budi Otot",
+    gender: "Male",
+    birthday: "03/07/05",
+    height: "170 Cm",
+    weight: "70 Kg",
+  });
+
+  const [profileImage, setProfileImage] = useState(null);
+
+  useEffect(() => {
+    if (route.params?.formData) {
+      setFormData(route.params.formData);
+    }
+    if (route.params?.profileImage) {
+      setProfileImage(route.params.profileImage);
+    }
+  }, [route.params]);
+
+  const name = formData?.name || "Budi Otot";
+
   return (
     <ImageBackground
       source={require("../assets/background-login-page.png")}
@@ -32,12 +53,20 @@ export default function Profile({ navigation }) {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Profile Picture */}
         <Image
-          source={require("../assets/profile-user.png")}
+          source={
+            typeof profileImage === "string" && profileImage.startsWith("file")
+              ? { uri: profileImage }
+              : typeof profileImage === "string"
+                ? { uri: profileImage }
+                : require("../assets/profile-user.png")
+          }
           style={styles.profilePic}
         />
 
         {/* Name */}
-        <Text style={styles.name}>Budi Otot</Text>
+        <Text style={styles.name}>
+          <Text style={styles.profileName}>{name}</Text>
+        </Text>
 
         {/* My Statistic */}
         <TouchableOpacity style={styles.menuBox}>
@@ -57,7 +86,12 @@ export default function Profile({ navigation }) {
 
         <TouchableOpacity
           style={styles.menuBox}
-          onPress={() => navigation.navigate("EditProfile")}
+          onPress={() =>
+            navigation.navigate("EditProfile", {
+              formData,
+              profileImage,
+            })
+          }
         >
           <Image
             source={require("../assets/profile-edit.png")}
@@ -232,7 +266,6 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     fontFamily: "Unbounded",
   },
-
   logoutContainer: {
     marginTop: 40,
   },

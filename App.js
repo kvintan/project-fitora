@@ -1,5 +1,3 @@
-// 📁 File: App.js
-
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -86,10 +84,10 @@ export default function App() {
           component={WorkoutTypeDetail}
           options={{ headerShown: false }}
         />
-        <Stack.Screen 
-          name="TrackingProgress" 
-          component={TrackingProgress} 
-          options={{ headerShown: false }} 
+        <Stack.Screen
+          name="TrackingProgress"
+          component={TrackingProgress}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="NutritionTips"
@@ -126,6 +124,12 @@ export default function App() {
           component={YourWorkout}
           options={{ headerShown: false }}
         ></Stack.Screen>
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: false }}
+        />
+
         <Stack.Screen
           name="EditProfile"
           component={EditProfile}
