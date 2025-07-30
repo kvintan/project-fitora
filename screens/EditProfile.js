@@ -12,6 +12,8 @@ import {
   Platform,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import * as FileSystem from "expo-file-system";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const { width, height } = Dimensions.get("window");
 
@@ -37,17 +39,34 @@ export default function EditProfile({ navigation }) {
   });
 
   const pickImage = async () => {
-    const result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 1,
-    });
+    const cameraPermission = await ImagePicker.requestCameraPermissionsAsync();
+    const mediaPermission =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-    if (!result.canceled) {
-      setProfileImage({ uri: result.assets[0].uri });
+    if (
+      cameraPermission.status !== "granted" ||
+      mediaPermission.status !== "granted"
+    ) {
+      alert("Permission to access camera and media library is required!");
+      return;
+    }
+
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 1,
+      });
+
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        setProfileImage({ uri: result.assets[0].uri });
+      }
+    } catch (error) {
+      console.warn("Image Picker error:", error);
     }
   };
+
   const renderInfoBox = (label, key) => (
     <View style={styles.infoBox}>
       <Text style={styles.infoLabel}>{label}</Text>

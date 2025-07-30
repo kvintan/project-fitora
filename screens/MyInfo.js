@@ -23,7 +23,7 @@ export default function MyInfo() {
   const navigation = useNavigation();
 
   const handleNext = () => {
-    navigation.navigate("MainTabs");
+    navigation.navigate("Login");
   };
 
   return (

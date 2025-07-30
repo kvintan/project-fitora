@@ -40,7 +40,10 @@ export default function Profile({ navigation }) {
         <Text style={styles.name}>Budi Otot</Text>
 
         {/* My Statistic */}
-        <TouchableOpacity style={styles.menuBox}>
+        <TouchableOpacity
+          style={styles.menuBox}
+          onPress={() => navigation.navigate("Statistic")}
+        >
           <Image
             source={require("../assets/profile-statistic.png")}
             style={styles.menuIcon}
