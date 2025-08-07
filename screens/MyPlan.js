@@ -6,9 +6,9 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  ImageBackground,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { ImageBackground } from "react-native";
 
 export default function MyPlan({ navigation }) {
   return (
@@ -41,7 +41,7 @@ export default function MyPlan({ navigation }) {
         >
           <TouchableOpacity
             style={{ flex: 1 }}
-            onPress={() => navigation.navigate("YourWorkout")}
+            onPress={() => navigation.navigate("CustomWorkout")}
             activeOpacity={0.7}
           >
             <Text style={styles.cardTitle}>Custom Workout</Text>
@@ -60,7 +60,7 @@ export default function MyPlan({ navigation }) {
         >
           <TouchableOpacity
             style={{ flex: 1 }}
-            onPress={() => navigation.navigate("YourPlan")}
+            onPress={() => navigation.navigate("CustomPlan")}
             activeOpacity={0.7}
           >
             <Text style={styles.cardTitle}>Custom Plan</Text>
@@ -75,10 +75,7 @@ export default function MyPlan({ navigation }) {
 
       {/* On Progress Plan */}
       <Text style={styles.sectionTitle}>On Progress Plan</Text>
-
-      <TouchableOpacity
-        onPress={() => navigation.navigate("OnProgressPlanDetail")}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("YourPlan")}>
         <ImageBackground
           source={require("../assets/my-plan-progress-plan.png")}
           style={styles.progressImage}
@@ -104,75 +101,82 @@ export default function MyPlan({ navigation }) {
 
       {/* On Progress Workout */}
       <Text style={styles.sectionTitle}>On Progress Workout</Text>
-      <LinearGradient
-        colors={["#2F2F2F", "#393939"]}
-        style={styles.workoutCard}
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate("YourWorkout")}
       >
-        <View style={styles.logoCircle}>
+        <LinearGradient
+          colors={["#2F2F2F", "#393939"]}
+          style={styles.workoutCard}
+        >
+          <View style={styles.logoCircle}>
+            <Image
+              source={require("../assets/my-plan-workout-logo.png")}
+              style={styles.workoutLogo}
+            />
+          </View>
+          <View style={styles.workoutTextWrapper}>
+            <Text style={styles.workoutTitle}>Shanella's Workout</Text>
+            <Text style={styles.workoutSubtitle}>45 Minute Estimation</Text>
+          </View>
           <Image
-            source={require("../assets/my-plan-workout-logo.png")}
-            style={styles.workoutLogo}
+            source={require("../assets/food-list-arrow.png")}
+            style={styles.arrowIcon}
           />
-        </View>
-        <View style={styles.workoutTextWrapper}>
-          <Text style={styles.workoutTitle}>Shanella's Workout</Text>
-          <Text style={styles.workoutSubtitle}>45 Minute Estimation</Text>
-        </View>
-        <Image
-          source={require("../assets/food-list-arrow.png")}
-          style={styles.arrowIcon}
-        />
-      </LinearGradient>
+        </LinearGradient>
+      </TouchableOpacity>
 
       {/* Recommendation Plan */}
       <Text style={styles.sectionTitle}>Recommendation Plan</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.recommendationWrapper}
-      >
-        {/* Recommendation Card 1 */}
-        <ImageBackground
-          source={require("../assets/my-plan-recommendation-1.png")}
-          style={styles.recommendationCard}
-          imageStyle={{ borderRadius: 12 }}
+      <TouchableOpacity onPress={() => navigation.navigate("YourPlan")}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.recommendationWrapper}
         >
-          <LinearGradient
-            colors={["rgba(0,0,0,0)", "#000000"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.recommendationContent}
+          {/* Recommendation Card 1 */}
+          <ImageBackground
+            source={require("../assets/my-plan-recommendation-1.png")}
+            style={styles.recommendationCard}
+            imageStyle={{ borderRadius: 12 }}
           >
-            <Text style={styles.recommendationTitle}>
-              30-Day Core Catalyst:{"\n"}Unleash Your Six-Pack
-            </Text>
-            <Text style={styles.recommendationSubtitle}>
-              30 Days | Core strength, definition, fat burn
-            </Text>
-          </LinearGradient>
-        </ImageBackground>
+            <LinearGradient
+              colors={["rgba(0,0,0,0)", "#000000"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={styles.recommendationContent}
+            >
+              <Text style={styles.recommendationTitle}>
+                30-Day Core Catalyst:{"\n"}Unleash Your Six-Pack
+              </Text>
+              <Text style={styles.recommendationSubtitle}>
+                30 Days | Core strength, definition, fat burn
+              </Text>
+            </LinearGradient>
+          </ImageBackground>
 
-        {/* Recommendation Card 2 (overflow) */}
-        <ImageBackground
-          source={require("../assets/my-plan-recommendation-2.png")}
-          style={styles.recommendationCard}
-          imageStyle={{ borderRadius: 12 }}
-        >
-          <LinearGradient
-            colors={["rgba(0,0,0,0)", "#000000"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.recommendationContent}
+          {/* Recommendation Card 2 */}
+          <ImageBackground
+            source={require("../assets/my-plan-recommendation-2.png")}
+            style={styles.recommendationCard}
+            imageStyle={{ borderRadius: 12 }}
           >
-            <Text style={styles.recommendationTitle}>
-              Spartan Back:{"\n"}Dominate with Pure{"\n"}Posterior Power
-            </Text>
-            <Text style={styles.recommendationSubtitle}>
-              30 Days | Upper, mid, and lower back{" "}
-            </Text>
-          </LinearGradient>
-        </ImageBackground>
-      </ScrollView>
+            <LinearGradient
+              colors={["rgba(0,0,0,0)", "#000000"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={styles.recommendationContent}
+            >
+              <Text style={styles.recommendationTitle}>
+                Spartan Back:{"\n"}Dominate with Pure{"\n"}Posterior Power
+              </Text>
+              <Text style={styles.recommendationSubtitle}>
+                30 Days | Upper, mid, and lower back{" "}
+              </Text>
+            </LinearGradient>
+          </ImageBackground>
+        </ScrollView>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -339,7 +343,6 @@ const styles = StyleSheet.create({
     height: 16,
     tintColor: "#fff",
   },
-
   recommendationWrapper: {
     marginBottom: 40,
   },

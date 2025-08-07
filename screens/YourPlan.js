@@ -29,7 +29,7 @@ export default function YourPlan({ navigation }) {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.navigate("MainTabs", { screen: "MyPlan" })}>
           <Image
             source={require("../assets/backButton.png")}
             style={styles.backIcon}

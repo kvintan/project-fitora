@@ -12,7 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function YourWorkout({ navigation }) {
   const workouts = [
     {
-      title: "Richard's Abs",
+      title: "Shanella's Workout",
       subtitle: "45 Minutes Estimation",
     },
     {
@@ -29,7 +29,7 @@ export default function YourWorkout({ navigation }) {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.navigate("MyPlan")}>
+        <TouchableOpacity onPress={() => navigation.navigate("MainTabs", { screen: "MyPlan" })}>
           <Image
             source={require("../assets/backButton.png")}
             style={styles.backIcon}
@@ -39,28 +39,33 @@ export default function YourWorkout({ navigation }) {
         <Text style={styles.headerTitle}>Your Workout</Text>
       </View>
 
-      {/* Workout Cards */}
       {workouts.map((item, index) => (
-        <LinearGradient
+        <TouchableOpacity
           key={index}
-          colors={["#2F2F2F", "#393939"]}
-          style={styles.planCard}
+          onPress={() =>
+            navigation.navigate("OnProgressWorkoutDetail", { workout: item })
+          }
         >
-          <View style={styles.logoCircle}>
+          <LinearGradient
+            colors={["#2F2F2F", "#393939"]}
+            style={styles.planCard}
+          >
+            <View style={styles.logoCircle}>
+              <Image
+                source={require("../assets/your-workout-logo.png")}
+                style={styles.planIcon}
+              />
+            </View>
+            <View style={styles.planTextWrapper}>
+              <Text style={styles.planTitle}>{item.title}</Text>
+              <Text style={styles.planSubtitle}>{item.subtitle}</Text>
+            </View>
             <Image
-              source={require("../assets/your-workout-logo.png")}
-              style={styles.planIcon}
+              source={require("../assets/food-list-arrow.png")}
+              style={styles.arrowIcon}
             />
-          </View>
-          <View style={styles.planTextWrapper}>
-            <Text style={styles.planTitle}>{item.title}</Text>
-            <Text style={styles.planSubtitle}>{item.subtitle}</Text>
-          </View>
-          <Image
-            source={require("../assets/food-list-arrow.png")}
-            style={styles.arrowIcon}
-          />
-        </LinearGradient>
+          </LinearGradient>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );

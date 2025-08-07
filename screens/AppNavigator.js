@@ -14,7 +14,6 @@ import ExerciseListPage from "./ExerciseListPage";
 import FoodDetail from "./FoodDetail";
 import FoodList from "./FoodList";
 import MyPlan from "./MyPlan";
-import MyPlanPage from "./MyPlanPage";
 import NutritionTips from "./NutritionTips";
 import Profile from "./Profile";
 import WorkoutType from "./WorkoutType";
@@ -42,7 +41,6 @@ export default function AppNavigator() {
       <Stack.Screen name="FoodDetail" component={FoodDetail} />
       <Stack.Screen name="FoodList" component={FoodList} />
       <Stack.Screen name="MyPlan" component={MyPlan} />
-      <Stack.Screen name="MyPlanPage" component={MyPlanPage} />
       <Stack.Screen name="NutritionTips" component={NutritionTips} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="WorkoutType" component={WorkoutType} />

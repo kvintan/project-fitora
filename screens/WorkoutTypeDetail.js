@@ -107,7 +107,7 @@ export default function WorkoutTypeDetail() {
                 navigation.navigate("TrackingProgress", {
                   exercises: workout.exercises,
                 })
-              }
+              }                      
             >
               <Text style={styles.startButtonText}>Start Session</Text>
             </TouchableOpacity>

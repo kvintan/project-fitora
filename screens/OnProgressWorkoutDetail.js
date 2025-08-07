@@ -11,8 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const workoutData = [
   {
-    title: "Abs Plan",
-    day: 1,
+    title: "Shanella's Workout",
     workouts: [
       {
         name: "One-Arm Deadlift",
@@ -38,12 +37,6 @@ const workoutData = [
         image: "weighted-crunches",
         videoSource: require("../assets/video/weighted-crunches-potrait.mp4"),
       },
-    ],
-  },
-  {
-    title: "Leg Day",
-    day: 2,
-    workouts: [
       {
         name: "Russian Twist",
         duration: "30s",
@@ -70,79 +63,13 @@ const workoutData = [
       },
     ],
   },
-  {
-    title: "Muscle Strength",
-    day: 3,
-    workouts: [
-      {
-        name: "Weighted Leg Lifts",
-        duration: "30s",
-        sets: 3,
-        reps: 15,
-        image: "weighted-leg-lifts",
-        videoSource: require("../assets/video/weighted-leg-lifts-potrait.mp4"),
-      },
-      {
-        name: "Knee Raises",
-        duration: "30s",
-        sets: 3,
-        reps: 20,
-        image: "knee-raises",
-        videoSource: require("../assets/video/pull-up-potrait.mp4"),
-      },
-      {
-        name: "Mason Twist",
-        duration: "30s",
-        sets: 3,
-        reps: 20,
-        image: "mason-twist",
-        videoSource: require("../assets/video/mason-twist-potrait.mp4"),
-      },
-      {
-        name: "Weighted Crunches",
-        duration: "30s",
-        sets: 3,
-        reps: 20,
-        image: "weighted-crunches",
-        videoSource: require("../assets/video/weighted-crunches-potrait.mp4"),
-      },
-    ],
-  },
-  {
-    title: "Full Body Workout",
-    day: 4,
-    workouts: [
-      {
-        name: "One-Arm Deadlift",
-        duration: "40s",
-        sets: 3,
-        reps: 15,
-        image: "one-arm-deadlift",
-        videoSource: require("../assets/video/one-arm-deadlift-potrait.mp4"),
-      },
-            {
-        name: "Mason Twist",
-        duration: "30s",
-        sets: 3,
-        reps: 20,
-        image: "mason-twist",
-        videoSource: require("../assets/video/mason-twist-potrait.mp4"),
-      },
-      {
-        name: "Weighted Crunches",
-        duration: "30s",
-        sets: 3,
-        reps: 20,
-        image: "weighted-crunches",
-        videoSource: require("../assets/video/weighted-crunches-potrait.mp4"),
-      },
-    ],
-  },
 ];
+
 
 export default function YourPlan({ navigation }) {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -150,7 +77,7 @@ export default function YourPlan({ navigation }) {
             style={styles.backIcon}
           />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Shanella's Plan</Text>
+        <Text style={styles.headerTitle}>Your Workout</Text>
       </View>
 
       {workoutData.map((item, index) => (
@@ -160,11 +87,9 @@ export default function YourPlan({ navigation }) {
           style={styles.gradientCard}
         >
           <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <Text style={styles.cardTitle}>{item.title}</Text>
-              <Text style={styles.dayTitle}>DAY {item.day}</Text>
-            </View>
+            <Text style={styles.cardTitle}>{item.title}</Text>
 
+            {/* REPS & SET header */}
             <View style={styles.subtitleRow}>
               <View style={{ flex: 1 }} />
               <Text style={styles.subtitle}>REPS</Text>
@@ -185,18 +110,14 @@ export default function YourPlan({ navigation }) {
               </View>
             ))}
 
+            {/* Start Workout */}
             <View style={{ alignItems: "center" }}>
               <TouchableOpacity
-                onPress={() => {
-                  const formattedWorkouts = item.workouts.map((w) => ({
-                    name: w.name,
-                    duration: 30, // default 30 detik
-                    videoSource: w.videoSource, // ganti jika punya video
-                  }));
-                  navigation.navigate("TrackingProgressPlan", {
-                    exercises: formattedWorkouts,
-                  });
-                }}
+                onPress={() =>
+                  navigation.navigate("TrackingProgress", {
+                    exercises: item.workouts,
+                  })
+                }
               >
                 <LinearGradient
                   colors={["#AFFA01", "#F2FF00"]}
@@ -222,15 +143,42 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    justifyContent: "flex-start",
     alignItems: "center",
     marginBottom: 26,
-    position: "relative",
+  },
+  backIcon: {
+    width: 40,
+    height: 40,
+    tintColor: "#fff",
+  },
+  headerTitle: {
+    flex: 1,
+    textAlign: "center",
+    fontSize: 20,
+    fontFamily: "Unbounded",
+    color: "#fff",
+    fontWeight: "bold",
+    marginRight: 40,
+  },
+  gradientCard: {
+    borderRadius: 12,
+    marginBottom: 30,
+  },
+  card: {
+    borderRadius: 12,
+    padding: 16,
+  },
+  cardTitle: {
+    color: "#fff",
+    fontSize: 21,
+    fontFamily: "Unbounded",
+    fontWeight: "bold",
+    marginBottom: 10,
   },
   subtitleRow: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginBottom: 10,
+    marginBottom: 6,
     gap: 20,
     marginEnd: 10,
   },
@@ -254,12 +202,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 8,
   },
+  workoutName: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontFamily: "Lexend",
+    fontSize: 16,
+  },
   repsBox: {
     width: 50,
     height: 45,
     backgroundColor: "#1E1E1E",
     marginLeft: 8,
-    paddingVertical: 1,
+    paddingVertical: 8,
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
@@ -268,55 +222,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
-  backIcon: {
-    width: 50,
-    height: 50,
-    resizeMode: "contain",
-    tintColor: "#fff",
-  },
-  headerTitle: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    textAlign: "center",
-    fontSize: 20,
-    fontFamily: "Unbounded",
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  gradientCard: {
-    borderRadius: 12,
-    marginBottom: 30,
-  },
-  card: {
-    borderRadius: 12,
-    padding: 16,
-  },
-  cardHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 10,
-  },
-  cardTitle: {
-    color: "#fff",
-    fontSize: 21,
-    fontFamily: "Unbounded",
-    fontWeight: "bold",
-  },
-  dayTitle: {
-    color: "#ffffff",
-    fontSize: 14,
-    fontFamily: "Lexend",
-    fontWeight: "bold",
-  },
-  workoutName: {
-    color: "#fff",
-    fontFamily: "lexend",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
   button: {
-    backgroundColor: "#b3ff00",
     paddingVertical: 15,
     justifyContent: "center",
     width: 200,
@@ -327,7 +233,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontWeight: "bold",
-    fontFamily: "lexend",
+    fontFamily: "Lexend",
     color: "#000",
     fontSize: 14,
   },

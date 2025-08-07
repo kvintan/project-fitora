@@ -17,7 +17,6 @@ import NutritionTips from "./screens/NutritionTips";
 import ArticleDetail from "./screens/ArticleDetail";
 import FoodList from "./screens/FoodList";
 import Homepage from "./screens/Homepage";
-import MyPlanPage from "./screens/MyPlanPage";
 import ProfilePage from "./screens/ProfilePage";
 import BottomTabs from "./BottomTabs";
 import FoodDetail from "./screens/FoodDetail";
@@ -28,8 +27,19 @@ import Profile from "./screens/Profile";
 import EditProfile from "./screens/EditProfile";
 import Register from "./screens/Register";
 import OnProgressPlanDetail from "./screens/OnProgressPlanDetail";
+import OnProgressWorkoutDetail from "./screens/OnProgressWorkoutDetail";
 import MyInfo from "./screens/MyInfo";
 import Statistic from "./screens/Statistic";
+import CustomPlan from "./screens/CustomPlan";
+import CustomWorkout from "./screens/CustomWorkout";
+import CustomWorkoutPlan from "./screens/CustomWorkoutPlan";
+import ExerciseListinCustom from "./screens/ExerciseListinCustom";
+import TrackingProgressWorkout from "./screens/TrackingProgressWorkout";
+import TrackingProgressPlan from "./screens/TrackingProgressPlan";
+
+
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -64,6 +74,16 @@ export default function App() {
         <Stack.Screen
           name="ExerciseDetail"
           component={ExerciseDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TrackingProgressWorkout"
+          component={TrackingProgressWorkout}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TrackingProgressPlan"
+          component={TrackingProgressPlan}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -136,7 +156,16 @@ export default function App() {
           component={Profile}
           options={{ headerShown: false }}
         />
-
+        <Stack.Screen
+          name="CustomPlan"
+          component={CustomPlan}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CustomWorkoutPlan"
+          component={CustomWorkoutPlan}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="EditProfile"
           component={EditProfile}
@@ -155,6 +184,22 @@ export default function App() {
         <Stack.Screen
           name="Statistic"
           component={Statistic}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="OnProgressWorkoutDetail"
+          component={OnProgressWorkoutDetail}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="CustomWorkout"
+          component={CustomWorkout}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ExerciseListinCustom"
+          component={ExerciseListinCustom}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
